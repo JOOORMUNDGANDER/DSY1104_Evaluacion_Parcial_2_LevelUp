@@ -42,6 +42,17 @@ const carritoReducer = (state, action) => {
     case 'VACIAR_CARRITO':
       return { items: [], total: 0, cantidad: 0 };
 
+    case 'ACTUALIZAR_CANTIDAD':
+      const itemsActualizados = state.items.map(item =>
+        item.id === action.id
+          ? { ...item, cantidad: action.cantidad }
+          : item
+      );
+      const nuevaCantidadTotal = itemsActualizados.reduce((acc, item) => acc + item.cantidad, 0);
+      const nuevoTotalGeneral = itemsActualizados.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
+
+      return { ...state, items: itemsActualizados, cantidad: nuevaCantidadTotal, total: nuevoTotalGeneral };
+
     case 'CARGAR_DEL_STORAGE':
       return action.carrito;
 

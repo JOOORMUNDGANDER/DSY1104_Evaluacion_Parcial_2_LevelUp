@@ -1,49 +1,192 @@
+/* src/styles/Catalogo.css */
+
 .catalogo-container {
-  padding: 2rem;
+  padding: 3rem 2rem;
+  background-color: #000000;
+  color: white;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.catalogo-container h2 {
+  color: #9D4EDD;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
   text-align: center;
+  text-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
 }
 
-.search-input {
-  width: 80%;
-  max-width: 400px;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+/* Filtros */
+.filtros-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  background: #111;
+  border-radius: 12px;
+  border: 1px solid #6A0DAD;
 }
 
-.catalog-grid {
+.filtro-input {
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: white;
+  width: 220px;
+  font-size: 0.95rem;
+}
+
+.filtro-select {
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.rango-precio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.rango-precio label {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.rango-precio input[type="range"] {
+  width: 150px;
+}
+
+/* Grilla de productos */
+.catalogo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.product-card {
-  background: #222;
-  padding: 1rem;
-  border-radius: 10px;
-  text-align: center;
-  width: 200px;
+/* Tarjeta de producto */
+.producto-card {
+  background: #111;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #6A0DAD;
+  box-shadow: 0 8px 24px rgba(106, 13, 173, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.product-card img {
-  max-width: 100%;
-  border-radius: 5px;
-  height: 120px;
+.producto-imagen {
+  height: 160px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  border-bottom: 2px solid #6A0DAD;
+}
+
+.producto-imagen img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-.product-card button {
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: #007bff;
+.producto-card:hover .producto-imagen img {
+  transform: scale(1.05);
+}
+
+.producto-info {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.producto-info h3 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.2rem;
+  color: #FFD700;
+  font-weight: 600;
+}
+
+.producto-info p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  flex: 1;
+}
+
+.producto-precio {
+  color: #FFD700;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0 0 0.8rem 0;
+}
+
+.producto-oferta {
+  color: #ff3333;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.producto-card button {
+  padding: 0.7rem;
+  background: linear-gradient(145deg, #9D4EDD, #6A0DAD);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
 }
 
-.product-card button:hover {
-  background: #0056b3;
+.producto-card button:hover {
+  background: linear-gradient(145deg, #8A3EDA, #5A0C9D);
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.4);
+}
+
+/* Mensaje sin resultados */
+.sin-resultados {
+  text-align: center;
+  padding: 3rem;
+  color: #aaa;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .catalogo-container {
+    padding: 2rem 1.5rem;
+  }
+  .catalogo-container h2 {
+    font-size: 2.1rem;
+  }
+  .filtros-container {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+  .catalogo-grid {
+    gap: 1.8rem;
+  }
 }

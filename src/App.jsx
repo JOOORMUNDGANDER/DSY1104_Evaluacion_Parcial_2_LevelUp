@@ -1,3 +1,4 @@
+// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -11,6 +12,13 @@ import Ofertas from './pages/Ofertas';
 import Servicios from './pages/Servicios';
 import Contacto from './pages/Contacto';
 import CarritoPage from './pages/CarritoPage';
+import Login from './pages/Login';
+import Registro from './pages/Registro';
+import Perfil from './pages/Perfil';
+import Blog from './pages/Blog';
+import Eventos from './pages/Eventos';
+
+import RutaProtegida from './components/RutaProtegida';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -26,7 +34,20 @@ function App() {
           <Route path="/servicios" element={<Servicios />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/producto/:id" element={<ProductoDetalle />} />
-          <Route path="/carrito" element={<CarritoPage />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/eventos" element={<Eventos />} />
+          <Route path="/carrito" element={
+            <RutaProtegida>
+              <CarritoPage />
+            </RutaProtegida>
+          } />
+          <Route path="/perfil" element={
+            <RutaProtegida>
+              <Perfil />
+            </RutaProtegida>
+          } />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
         </Routes>
       </main>
       <Footer />

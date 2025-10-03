@@ -1,0 +1,175 @@
+/* src/styles/Ofertas.css */
+
+.ofertas-container {
+  padding: 3rem 2rem;
+  background-color: #000000;
+  color: white;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ofertas-container h1 {
+  color: #FFD700;
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.ofertas-container h1::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #9D4EDD, #FFD700);
+  margin: 0.8rem auto;
+  border-radius: 2px;
+}
+
+.ofertas-container p {
+  text-align: center;
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Etiqueta de oferta destacada */
+.etiqueta-oferta {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background: linear-gradient(135deg, #ff3333, #cc0000);
+  color: white;
+  font-weight: bold;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(255, 51, 51, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Grilla de productos en oferta */
+.ofertas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Tarjeta de producto en oferta */
+.producto-oferta {
+  background: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #6A0DAD;
+  box-shadow: 0 8px 24px rgba(106, 13, 173, 0.25);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.producto-oferta:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 32px rgba(106, 13, 173, 0.4);
+  border-color: #9D4EDD;
+}
+
+.producto-oferta img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 2px solid #6A0DAD;
+}
+
+.producto-oferta-info {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.producto-oferta h3 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 600;
+  height: 2.2rem;
+  overflow: hidden;
+}
+
+.producto-oferta .precio-original {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.producto-oferta .precio-oferta {
+  color: #FFD700;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.descuento {
+  color: #ff3333;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.producto-oferta button {
+  margin-top: auto;
+  padding: 0.7rem;
+  background: linear-gradient(145deg, #9D4EDD, #6A0DAD);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.producto-oferta button:hover {
+  background: linear-gradient(145deg, #8A3EDA, #5A0C9D);
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ofertas-container {
+    padding: 2.5rem 1.5rem;
+  }
+  .ofertas-container h1 {
+    font-size: 2.2rem;
+  }
+  .ofertas-container p {
+    font-size: 1rem;
+  }
+  .ofertas-grid {
+    gap: 1.8rem;
+  }
+  .producto-oferta-info {
+    padding: 1.2rem;
+  }
+}

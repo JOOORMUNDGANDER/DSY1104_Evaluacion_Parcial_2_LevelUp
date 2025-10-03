@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente-principal);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(30, 144, 255, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(57, 255, 20, 0.1) 0%, transparent 20%);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fuente-encabezado);
+  color: var(--acento-azul);
+}
+
+.btn {
+  background: linear-gradient(45deg, var(--acento-azul), var(--acento-verde));
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: var(--fuente-encabezado);
+  font-size: 1rem;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}

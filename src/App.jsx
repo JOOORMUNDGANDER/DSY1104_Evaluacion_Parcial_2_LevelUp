@@ -28,7 +28,7 @@ function App() {
       <NavbarPrincipal />
       <main className="container mt-4">
         <Routes>
-          <Route path="/" element={<><CarruselInicio /><Home /></>} />
+          <Route path="/" element={<Home />} />
           <Route path="/catalogo" element={<Catalogo />} />
           <Route path="/ofertas" element={<Ofertas />} />
           <Route path="/servicios" element={<Servicios />} />

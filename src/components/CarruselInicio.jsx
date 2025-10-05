@@ -10,21 +10,23 @@ import Razer from '../assets/razer.png';
 import Logitec from '../assets/Logitec.png';
 
 function CarruselInicio() {
+  const bannerItems = [
+    { src: Banner1, alt: 'ASUS RTX 5060', description: 'Recién llegadas ASUS Prime GeForce RTX 5060', cta: 'Comprar ahora' },
+    { src: Cougar, alt: 'COUGAR', description: 'Las mejores ofertas COUGAR', cta: 'Ver productos' },
+    { src: MsiGpu, alt: 'MSI GPU', description: 'Tecnología de punta para gamers', cta: 'Descubrir' },
+    { src: Razer, alt: 'Razer', description: 'Equipos Razer originales', cta: 'Comprar ahora' },
+    { src: Logitec, alt: 'Logitech', description: 'Infórmate de los nuevos equipos', cta: 'Comprar ahora' }
+  ];
+
   return (
     <Carousel>
-      {[
-        { src: Banner1, alt: 'ASUS RTX 5060', description: 'Recién llegadas ASUS Prime GeForce RTX 5060', cta: 'Comprar ahora' },
-        { src: Cougar, alt: 'COUGAR', description: 'Las mejores ofertas COUGAR', cta: 'Ver productos' },
-        { src: MsiGpu, alt: 'MSI GPU', description: 'Tecnología de punta para gamers', cta: 'Descubrir' },
-        { src: Razer, alt: 'Razer', description: 'Equipos Razer originales', cta: 'Comprar ahora' },
-        { src: Logitec, alt: 'Logitech', description: 'Informate de los nuevos equipos', cta: 'Comprar ahora' }
-      ].map((item, idx) => (
+      {bannerItems.map((item, idx) => (
         <Carousel.Item key={idx}>
           <img className="d-block w-100" src={item.src} alt={item.alt} />
-          <Carousel.Caption className="text-start">
+          <Carousel.Caption>
             <h3>{item.alt}</h3>
             <p>{item.description}</p>
-            <Button variant="gold" className="cta-button">{item.cta}</Button>
+            <Button className="btn-gold cta-button">{item.cta}</Button>
           </Carousel.Caption>
         </Carousel.Item>
       ))}

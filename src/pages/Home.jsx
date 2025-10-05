@@ -1,13 +1,22 @@
 import React from 'react';
+import CarruselInicio from '../components/CarruselInicio';
 import "../styles/Home.css";
 
 function Home() {
   return (
     <div>
-      {/* Aquí va solo el contenido después del carrusel */}
-      <h1>Bienvenido a Level-Up Gamer</h1>
-      <p>Tu tienda gamer favorita.</p>
-      {/* ... resto del contenido de Inicio ... */}
+      {/* SOLO el título arriba */}
+      <header className="bienvenida">
+        <h1>
+          Bienvenido a <span className="marca">Level-Up Gamer</span>
+        </h1>
+        <p>Tu tienda gamer favorita.</p>
+      </header>
+
+      {/* SOLO un carrusel debajo */}
+      <CarruselInicio />
+
+      {/* ... resto del contenido ... */}
     </div>
   );
 }

@@ -1,119 +1,178 @@
-// src/pages/Catalogo.jsx
 import React, { useState } from 'react';
 import { productos } from '../data/productos';
 import { useCarrito } from '../context/CarritoContext';
-import ModalProducto from '../components/ModalProducto';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Catalogo.css';
 
 function Catalogo() {
   const [busqueda, setBusqueda] = useState('');
-  const [categoria, setCategoria] = useState('');
+  const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
+  const [precioMin, setPrecioMin] = useState(0);
   const [precioMax, setPrecioMax] = useState(1000000);
-  const [productoSeleccionado, setProductoSeleccionado] = useState(null); // ✅ Estado para el modal
+  const [toast, setToast] = useState({ show: false, nombre: '' });
 
   const { dispatch } = useCarrito();
+  const navigate = useNavigate();
 
   const agregarAlCarrito = (producto) => {
     dispatch({ type: 'AGREGAR_PRODUCTO', producto });
-    alert(`${producto.nombre} agregado al carrito`);
+    setToast({ show: true, nombre: producto.nombre });
+    setTimeout(() => setToast({ show: false, nombre: '' }), 2000);
+  };
+
+  const toggleCategoria = (categoria) => {
+    setCategoriasSeleccionadas(prev =>
+      prev.includes(categoria)
+        ? prev.filter(c => c !== categoria)
+        : [...prev, categoria]
+    );
+  };
+
+  const categorias = [
+    'juegos-mesa',
+    'accesorios',
+    'consolas',
+    'computadores-gamers',
+    'sillas-gamers',
+    'mouse',
+    'mousepad',
+    'poleras-personalizadas',
+    'polerones-gamers',
+    'perifericos-streaming',
+    'iluminacion-rgb'
+  ];
+
+  const formatearCategoria = (categoria) => {
+    return categoria.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
   };
 
   const productosFiltrados = productos.filter(p =>
-    (!categoria || p.categoria === categoria) &&
     p.nombre.toLowerCase().includes(busqueda.toLowerCase()) &&
-    p.precio <= precioMax
+    (categoriasSeleccionadas.length === 0 || categoriasSeleccionadas.includes(p.categoria)) &&
+    p.precio >= precioMin && p.precio <= precioMax
   );
+
+  const limpiarFiltros = () => {
+    setBusqueda('');
+    setCategoriasSeleccionadas([]);
+    setPrecioMin(0);
+    setPrecioMax(1000000);
+  };
 
   return (
     <div className="catalogo-container">
       <h2>Catálogo de Productos</h2>
 
-      {/* Filtros */}
-      <div className="filtros-container">
-        <input
-          type="text"
-          placeholder="Buscar productos..."
-          value={busqueda}
-          onChange={(e) => setBusqueda(e.target.value)}
-          className="filtro-input"
-        />
-
-        <select
-          value={categoria}
-          onChange={(e) => setCategoria(e.target.value)}
-          className="filtro-select"
-        >
-          <option value="">Todas las categorías</option>
-          <option value="juegos-mesa">Juegos de Mesa</option>
-          <option value="accesorios">Accesorios</option>
-          <option value="consolas">Consolas</option>
-          <option value="computadores-gamers">Computadores Gamers</option>
-          <option value="sillas-gamers">Sillas Gamers</option>
-          <option value="mouse">Mouse</option>
-          <option value="mousepad">Mousepad</option>
-          <option value="poleras-personalizadas">Poleras Personalizadas</option>
-          <option value="polerones-gamers">Polerones Gamers</option>
-          <option value="perifericos-streaming">Periféricos para Streaming</option>
-          <option value="iluminacion-rgb">Iluminación RGB</option>
-        </select>
-
-        <div className="rango-precio">
-          <label>
-            Precio máximo: <strong>${Number(precioMax).toLocaleString()}</strong>
-          </label>
-          <input
-            type="range"
-            min="0"
-            max="1000000"
-            value={precioMax}
-            onChange={(e) => setPrecioMax(e.target.value)}
-          />
+      {toast.show && (
+        <div className="toast-carrito">
+          <span role="img" aria-label="carrito">🛒</span>
+          <b>{toast.nombre}</b> agregado al carrito
         </div>
-      </div>
+      )}
 
-      {/* Productos */}
-      {productosFiltrados.length === 0 ? (
-        <div className="sin-resultados">
-          <p>😓 No se encontraron productos con esos filtros.</p>
-        </div>
-      ) : (
-        <div className="catalogo-grid">
-          {productosFiltrados.map(p => (
-            <div
-              key={p.id}
-              className="producto-card"
-              onClick={() => setProductoSeleccionado(p)} // ✅ Abre el modal
-              style={{ cursor: 'pointer' }}
-            >
-              <div className="producto-imagen">
-                <img src={p.imagen} alt={p.nombre} />
+      <div className="catalogo-layout">
+        <aside className="filtros-lateral">
+          <div className="filtro-seccion">
+            <h4>🔍 Búsqueda</h4>
+            <input
+              type="text"
+              placeholder="Buscar productos..."
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+              className="filtro-input"
+            />
+          </div>
+          <div className="filtro-seccion">
+            <h4>💰 Rango de Precios</h4>
+            <div className="filtro-precio-avanzado">
+              <div className="precio-inputs">
+                <div className="precio-campo">
+                  <label>Mínimo</label>
+                  <input
+                    type="number"
+                    value={precioMin}
+                    onChange={(e) => setPrecioMin(Number(e.target.value))}
+                    className="precio-input"
+                    min="0"
+                    max={precioMax}
+                  />
+                </div>
+                <div className="precio-campo">
+                  <label>Máximo</label>
+                  <input
+                    type="number"
+                    value={precioMax}
+                    onChange={(e) => setPrecioMax(Number(e.target.value))}
+                    className="precio-input"
+                    min={precioMin}
+                    max="1000000"
+                  />
+                </div>
               </div>
-              <div className="producto-info">
-                <h3>{p.nombre}</h3>
-                <p>{p.descripcion}</p>
-                <p className="producto-precio">${p.precio.toLocaleString()} CLP</p>
-                {p.oferta && <p className="producto-oferta">🔥 ¡En oferta!</p>}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation(); // ✅ Evita abrir el modal al hacer clic en el botón
-                    agregarAlCarrito(p);
-                  }}
-                >
-                  Agregar al carrito
-                </button>
+              <div className="precio-display">
+                <span>${Number(precioMin).toLocaleString()} - ${Number(precioMax).toLocaleString()}</span>
               </div>
             </div>
-          ))}
-        </div>
-      )}
-
-      {/* Modal */}
-      {productoSeleccionado && (
-        <ModalProducto
-          producto={productoSeleccionado}
-          onClose={() => setProductoSeleccionado(null)}
-        />
-      )}
+          </div>
+          <div className="filtro-seccion">
+            <h4>📂 Categorías</h4>
+            <div className="categorias-checkboxes">
+              {categorias.map(categoria => (
+                <label key={categoria} className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={categoriasSeleccionadas.includes(categoria)}
+                    onChange={() => toggleCategoria(categoria)}
+                    className="checkbox-categoria"
+                  />
+                  <span className="checkmark"></span>
+                  {formatearCategoria(categoria)}
+                </label>
+              ))}
+            </div>
+          </div>
+          <button onClick={limpiarFiltros} className="limpiar-filtros">
+            🗑️ Limpiar filtros
+          </button>
+          <div className="contador-resultados">
+            {productosFiltrados.length} productos encontrados
+          </div>
+        </aside>
+        <section className="catalogo-grid">
+          {productosFiltrados.length === 0 ? (
+            <div className="sin-resultados">
+              <p>😓 No se encontraron productos con esos filtros.</p>
+            </div>
+          ) : (
+            productosFiltrados.map(p => (
+              <div
+                key={p.id}
+                className="producto-card"
+                style={{ cursor: 'pointer' }}
+                onClick={() => navigate(`/producto/${p.id}`)}
+              >
+                <div className="producto-imagen">
+                  <img src={p.imagen} alt={p.nombre} />
+                </div>
+                <div className="producto-info">
+                  <h3>{p.nombre}</h3>
+                  <p>{p.descripcion}</p>
+                  <p className="producto-precio">${p.precio.toLocaleString()} CLP</p>
+                  {p.oferta && <p className="producto-oferta">🔥 ¡En oferta!</p>}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      agregarAlCarrito(p);
+                    }}
+                  >
+                    Agregar al carrito
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </section>
+      </div>
     </div>
   );
 }

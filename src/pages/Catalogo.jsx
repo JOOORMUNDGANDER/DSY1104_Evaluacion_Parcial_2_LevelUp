@@ -8,7 +8,7 @@ function Catalogo() {
   const [busqueda, setBusqueda] = useState('');
   const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
   const [precioMin, setPrecioMin] = useState(0);
-  const [precioMax, setPrecioMax] = useState(1000000);
+  const [precioMax, setPrecioMax] = useState(3000000);
   const [toast, setToast] = useState({ show: false, nombre: '' });
 
   const { dispatch } = useCarrito();

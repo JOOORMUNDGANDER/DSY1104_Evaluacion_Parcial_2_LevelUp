@@ -1,5 +1,5 @@
 // src/components/ProductoDetalle.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { productos } from '../data/productos';
 import { useCarrito } from '../context/CarritoContext';
@@ -9,6 +9,8 @@ function ProductoDetalle() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [toast, setToast] = useState({ show: false, nombre: '' });
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -27,17 +29,33 @@ function ProductoDetalle() {
     );
   }
 
+  const formatearCategoria = cat =>
+    cat.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+  const mostrarToast = (nombreProducto) => {
+    setToast({ show: true, nombre: nombreProducto });
+    setTimeout(() => setToast({ show: false, nombre: '' }), 2000);
+  };
+
   const agregarAlCarrito = () => {
     dispatch({ type: 'AGREGAR_PRODUCTO', producto });
+    mostrarToast(producto.nombre);
   };
 
   const comprarAhora = () => {
     dispatch({ type: 'AGREGAR_PRODUCTO', producto });
-    navigate('/carrito');
+    mostrarToast(producto.nombre);
+    setTimeout(() => navigate('/carrito'), 800); // Pequeño delay para que se vea el toast
   };
 
   return (
     <div className="detalle-container">
+      {toast.show && (
+        <div className="toast-carrito">
+          <span role="img" aria-label="carrito">🛒</span>
+          <b>{toast.nombre}</b> agregado al carrito
+        </div>
+      )}
       <div className="detalle-tarjeta">
         <div className="detalle-imagen">
           <img src={producto.imagen} alt={producto.nombre} />
@@ -45,9 +63,11 @@ function ProductoDetalle() {
         <div className="detalle-info">
           <h2>{producto.nombre}</h2>
           <p><strong>Código:</strong> {producto.codigo}</p>
-          <p><strong>Categoría:</strong> {producto.categoria.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</p>
+          <p><strong>Categoría:</strong> {formatearCategoria(producto.categoria)}</p>
           <p className="detalle-precio">${producto.precio.toLocaleString()} CLP</p>
-          {producto.oferta && <p className="detalle-oferta">🔥 ¡En oferta!</p>}
+          {producto.oferta && (
+            <p className="detalle-oferta">🔥 ¡En oferta!</p>
+          )}
           <p className="detalle-descripcion">{producto.descripcion}</p>
           <div className="detalle-botones">
             <button onClick={agregarAlCarrito}>Agregar al carrito</button>

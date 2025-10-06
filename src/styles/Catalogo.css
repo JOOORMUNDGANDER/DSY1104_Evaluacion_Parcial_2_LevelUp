@@ -1,7 +1,7 @@
 .catalogo-container {
   padding: 3rem 2rem;
   background-color: #000;
-  color: white;
+  color: #fff;
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -28,7 +28,7 @@
   background: #111;
   padding: 1.5rem;
   border-radius: 18px;
-  border: 1.5px solid #6A0DAD;
+  border: 1.7px solid #6A0DAD;
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
@@ -47,40 +47,20 @@
   border-bottom: 1px solid #444;
   padding-bottom: 0.4rem;
 }
-.filtro-input {
+.filtro-input, .precio-input {
   padding: 0.8rem;
   border-radius: 8px;
   border: 1px solid #444;
   background: #1a1a1a;
   color: white;
-  width: 100%;
   font-size: 0.98rem;
+  width: 100%;
   transition: border-color 0.3s;
 }
-.filtro-input:focus {
+.filtro-input:focus, .precio-input:focus {
   border-color: #9D4EDD;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(157, 78, 221, 0.2);
-}
-.precio-input {
-  padding: 0.6rem;
-  border-radius: 6px;
-  border: 1px solid #444;
-  background: #1a1a1a;
-  color: white;
-  font-size: 0.9rem;
-  transition: border-color 0.3s;
-  max-width: 120px;
-  box-sizing: border-box;
-}
-.precio-input:focus {
-  border-color: #FFD700;
-  outline: none;
-}
-.filtro-precio-avanzado {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  box-shadow: 0 0 0 2px #9D4EDD33;
 }
 .precio-inputs {
   display: flex;
@@ -94,7 +74,7 @@
 }
 .precio-campo label {
   font-size: 0.85rem;
-  color: #ccc;
+  color: #bdbdbd;
 }
 .precio-display {
   text-align: center;
@@ -102,12 +82,12 @@
   background: #1a1a1a;
   border-radius: 8px;
   font-size: 0.95rem;
-  color: #FFD700;
+  color: #9D4EDD;
   font-weight: 600;
-  border: 1px solid #FFD700;
+  border: 1px solid #9D4EDD;
   margin-top: 0.2rem;
 }
-/* Checkboxes de categorías con scrollbar oscuro */
+/* Checkboxes de categorías */
 .categorias-checkboxes {
   display: flex;
   flex-direction: column;
@@ -143,10 +123,11 @@
   appearance: none;
   width: 18px;
   height: 18px;
-  border: 2px solid #444;
+  border: 2px solid #6A0DAD;
   border-radius: 4px;
   background: #1a1a1a;
   cursor: pointer;
+  margin-right: 4px;
   position: relative;
   transition: all 0.3s;
 }
@@ -160,7 +141,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #fff;
   font-size: 12px;
   font-weight: bold;
 }
@@ -168,7 +149,7 @@
   padding: 0.8rem;
   background: #333;
   color: #FFD700;
-  border: 1px solid #FFD700;
+  border: 1.4px solid #FFD700;
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.95rem;
@@ -195,13 +176,11 @@
   gap: 2rem;
   width: 100%;
   padding: 0 0.2rem;
-  margin: 0;
   min-height: 70vh;
   box-sizing: border-box;
   justify-content: start;
   align-items: start;
   justify-items: center;
-  /* Hace que si hay pocos productos, no se expandan a lo ancho, sino que se mantengan del mismo tamaño y alineados al inicio */
 }
 @media (min-width: 1400px) {
   .catalogo-grid {
@@ -215,28 +194,35 @@
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 1.1rem;
     padding: 0 0.1rem;
+
   }
 }
 @media (max-width: 650px) {
   .catalogo-grid {
     grid-template-columns: 1fr;
     gap: 0.8rem;
-    min-width: 100%;
   }
+
 }
 .producto-card {
   background: #111;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid #6A0DAD;
-  box-shadow: 0 8px 24px rgba(106, 13, 173, 0.2);
-  transition: all 0.3s ease;
+  border: 1.5px solid #6A0DAD;
+  box-shadow: 0 8px 24px rgba(106, 13, 173, 0.22);
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 340px;
   min-width: 220px;
   height: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.producto-card:hover {
+  border-color: #FFD700;
+  box-shadow: 0 16px 26px #FFD70035, 0 2px 18px #9D4EDD90;
+  transform: scale(1.025);
 }
 .producto-imagen {
   height: 160px;
@@ -265,7 +251,7 @@
 .producto-info h3 {
   margin: 0 0 0.6rem 0;
   font-size: 1.15rem;
-  color: #FFD700;
+  color: #9D4EDD;
   font-weight: 600;
 }
 .producto-info p {
@@ -282,7 +268,7 @@
   margin: 0 0 0.7rem 0;
 }
 .producto-oferta {
-  color: #ff3333;
+  color: #ff3939;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.7rem;
@@ -299,7 +285,8 @@
   font-size: 0.98rem;
 }
 .producto-card button:hover {
-  background: linear-gradient(145deg, #8A3EDA, #5A0C9D);
+  background: linear-gradient(145deg, #FFD700, #9D4EDD);
+  color: #212;
   transform: scale(1.03);
   box-shadow: 0 4px 12px rgba(106, 13, 173, 0.4);
 }
@@ -319,7 +306,7 @@
   padding: 0.8rem 1.3rem;
   border-radius: 8px;
   box-shadow: 0 2px 12px #000b;
-  font-size: 1.05rem;
+  font-size: 1.06rem;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -328,38 +315,6 @@
   animation: fadeInCart 0.3s;
 }
 @keyframes fadeInCart {
-  from { opacity: 0; transform: translateY(-18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@media (max-width: 1100px) {
-  .catalogo-layout {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  .filtros-lateral {
-    max-width: 100%;
-    margin-bottom: 1.8rem;
-    border-radius: 14px;
-  }
-  .categorias-checkboxes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.6rem 1.2rem;
-    max-height: none;
-  }
-}
-@media (max-width: 768px) {
-  .catalogo-container {
-    padding: 1rem 0.5rem;
-  }
-  .catalogo-container h2 {
-    font-size: 2.1rem;
-  }
-  .catalogo-grid {
-    gap: 1.3rem;
-  }
-  .precio-inputs {
-    flex-direction: column;
-    gap: 0.6rem;
-  }
+  from { opacity: 0; transform: translateY(-18px);}
+  to { opacity: 1; transform: translateY(0);}
 }

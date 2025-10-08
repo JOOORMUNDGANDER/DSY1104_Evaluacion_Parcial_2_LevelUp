@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { productos } from '../data/productos';
 import { useCarrito } from '../context/CarritoContext';
+import OpinionesProducto from '../components/OpinionesProducto';
 import '../styles/ProductoDetalle.css';
 
 function ProductoDetalle() {
@@ -76,6 +77,9 @@ function ProductoDetalle() {
           </div>
         </div>
       </div>
+
+      {/* Agregamos las opiniones al final del detalle */}
+      <OpinionesProducto productoId={producto.id} />
     </div>
   );
 }

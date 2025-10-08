@@ -2,7 +2,8 @@
 import { Navigate } from 'react-router-dom';
 
 function RutaProtegida({ children }) {
-  const usuario = localStorage.getItem('usuario');
+  const raw = localStorage.getItem('usuario');
+  const usuario = raw ? JSON.parse(raw) : null;
 
   if (!usuario) {
     // Si no hay usuario, redirige al login

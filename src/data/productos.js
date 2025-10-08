@@ -40,6 +40,81 @@ export const productos = [
     imagen: "/assets/images/azul.jpg",
     descripcion: "Juego de estrategia abstracta para 2-4 jugadores, ganador del Spiel des Jahres."
   },
+    {
+  id: "JM005",
+  codigo: "JM005",
+  categoria: "juegos-mesa",
+  nombre: "Terraforming Mars",
+  precio: 34990,
+  // imagen: "/assets/images/terraforming-mars.jpg",
+  descripcion: "Juego competitivo de estrategia donde los jugadores colaboran y compiten para hacer habitable Marte.",
+  especificaciones: {
+    "Jugadores": "1-5",
+    "Duración": "120 minutos",
+    "Edad recomendada": "12+",
+    "Componentes": "Tablero principal, tableros individuales, cartas, marcadores, fichas"
+  }
+},
+{
+  id: "JM006",
+  codigo: "JM006",
+  categoria: "juegos-mesa",
+  nombre: "Dixit Odyssey",
+  precio: 28990,
+  // imagen: "/assets/images/dixit-odyssey.jpg",
+  descripcion: "Juego de imaginación e interpretación visual con cartas ilustradas únicas.",
+  especificaciones: {
+    "Jugadores": "3-12",
+    "Duración": "30-45 minutos",
+    "Edad recomendada": "8+",
+    "Contenido": "84 cartas ilustradas, tablero de puntuación, fichas de votación"
+  }
+},
+{
+  id: "JM007",
+  codigo: "JM007",
+  categoria: "juegos-mesa",
+  nombre: "7 Wonders",
+  precio: 31990,
+  // imagen: "/assets/images/7wonders.jpg",
+  descripcion: "Construye una civilización y maravillas del mundo antiguo a través de un dinámico drafting de cartas.",
+  especificaciones: {
+    "Jugadores": "3-7",
+    "Duración": "30 minutos",
+    "Edad recomendada": "10+",
+    "Contenido": "Tableros de civilización, cartas, fichas, instrucciones"
+  }
+},
+{
+  id: "JM008",
+  codigo: "JM008",
+  categoria: "juegos-mesa",
+  nombre: "Wingspan",
+  precio: 35990,
+  // imagen: "/assets/images/wingspan.jpg",
+  descripcion: "Juego de motor de cartas sobre la observación y colección de aves. Ganador del Kennerspiel des Jahres.",
+  especificaciones: {
+    "Jugadores": "1-5",
+    "Duración": "40-70 minutos",
+    "Edad recomendada": "10+",
+    "Contenido": "Tableros, cartas de aves, huevos, dados personalizados"
+  }
+},
+{
+  id: "JM009",
+  codigo: "JM009",
+  categoria: "juegos-mesa",
+  nombre: "Codenames",
+  precio: 21990,
+  // imagen: "/assets/images/codenames.jpg",
+  descripcion: "Descubre a los agentes secretos de tu equipo usando pistas y palabras clave.",
+  especificaciones: {
+    "Jugadores": "2-8",
+    "Duración": "15 minutos",
+    "Edad recomendada": "14+",
+    "Contenido": "Cartas de palabras, cartas de agente, cronómetro"
+  }
+  },
 
   // === ACCESORIOS ===
   {
@@ -101,6 +176,81 @@ export const productos = [
     imagen: "/assets/images/mousepad-xxl.jpg",
     descripcion: "Mousepad de tela de 120x60cm, base antideslizante y bordes cosidos."
   },
+    {
+  id: "AC005",
+  codigo: "AC005",
+  categoria: "accesorios",
+  nombre: "Soporte Dual Charging Dock PS5",
+  precio: 24990,
+  // imagen: "/assets/images/ps5-dock.jpg",
+  descripcion: "Base de carga rápida para dos controles DualSense simultáneamente.",
+  especificaciones: {
+    "Compatibilidad": "Controles DualSense de PS5",
+    "Conexión": "USB-C",
+    "Tiempo de carga": "~2 horas",
+    "Indicadores LED": "Rojo (cargando), Azul (completo)",
+    "Seguridad": "Protección contra sobrecarga y sobrecalentamiento"
+  }
+},
+{
+  id: "AC006",
+  codigo: "AC006",
+  categoria: "accesorios",
+  nombre: "Base enfriadora para laptop gamer",
+  precio: 17990,
+  // imagen: "/assets/images/laptop-cooler.jpg",
+  descripcion: "Plataforma ajustable con 5 ventiladores LED y puertos USB extras.",
+  especificaciones: {
+    "Compatibilidad": "Laptops hasta 17\"",
+    "Ventiladores": "5 con LED azul",
+    "Altura regulable": "Sí, 6 posiciones",
+    "Puertos": "2x USB 2.0"
+  }
+},
+{
+  id: "AC007",
+  codigo: "AC007",
+  categoria: "accesorios",
+  nombre: "Antideslizante para silla gamer",
+  precio: 9990,
+  // imagen: "/assets/images/silla-pad.jpg",
+  descripcion: "Alfombrilla circular, protege el piso y evita que deslice la silla.",
+  especificaciones: {
+    "Diámetro": "120 cm",
+    "Material": "Poliéster, antifricción",
+    "Color": "Negro",
+    "Lavable": "Sí"
+  }
+},
+{
+  id: "AC008",
+  codigo: "AC008",
+  categoria: "accesorios",
+  nombre: "Adaptador Bluetooth USB 5.0",
+  precio: 6990,
+  // imagen: "/assets/images/bluetooth-usb.jpg",
+  descripcion: "Conecta auriculares, controles o smartphones al PC.",
+  especificaciones: {
+    "Versión": "Bluetooth 5.0",
+    "Compatibilidad": "Windows, MacOS",
+    "Alcance": "Hasta 20 metros",
+    "Conexión": "USB-A"
+  }
+},
+{
+  id: "AC009",
+  codigo: "AC009",
+  categoria: "accesorios",
+  nombre: "Bolso rígido protector para consola",
+  precio: 25990,
+  // imagen: "/assets/images/bolso-consola.jpg",
+  descripcion: "Case resistente para transportar tu consola y accesorios.",
+  especificaciones: {
+    "Compatibilidad": "PS5, Xbox Series X|S, Switch",
+    "Material": "EVA rígido",
+    "Espacios": "Para consola, controles y cables"
+  }
+},
 
   // === CONSOLAS ===
   {
@@ -153,7 +303,86 @@ export const productos = [
       "Pantalla": "7\" LCD, 1280x800"
     }
   },
-
+    {
+  id: "CO004",
+  codigo: "CO004",
+  categoria: "consolas",
+  nombre: "Xbox Series X",
+  precio: 469990,
+  // imagen: "/assets/images/xbox-series-x.jpg",
+  descripcion: "Consola de rendimiento extremo con juegos en 4K y almacenamiento de alta velocidad.",
+  especificaciones: {
+    "CPU": "AMD Zen 2, 8 núcleos @ 3.8GHz",
+    "GPU": "AMD RDNA 2, 12 TFLOPS",
+    "RAM": "16GB GDDR6",
+    "Almacenamiento": "1TB SSD NVMe",
+    "Resolución": "Hasta 8K HDR"
+  }
+},
+{
+  id: "CO005",
+  codigo: "CO005",
+  categoria: "consolas",
+  nombre: "Xbox Series S",
+  precio: 299990,
+  // imagen: "/assets/images/xbox-series-s.jpg",
+  descripcion: "Consola compacta, digital y ultra silenciosa, perfecta para gaming en alta definición.",
+  especificaciones: {
+    "CPU": "AMD Zen 2, 8 núcleos @ 3.6GHz",
+    "GPU": "AMD RDNA 2, 4 TFLOPS",
+    "RAM": "10GB GDDR6",
+    "Almacenamiento": "512GB SSD NVMe",
+    "Resolución": "1440p hasta 120Hz"
+  }
+},
+{
+  id: "CO006",
+  codigo: "CO006",
+  categoria: "consolas",
+  nombre: "Nintendo Switch Lite",
+  precio: 219990,
+  // imagen: "/assets/images/switch-lite.jpg",
+  descripcion: "Consola portátil ideal para juego individual y en movimiento.",
+  especificaciones: {
+    "Pantalla": "5.5” LCD",
+    "Resolución": "1280x720",
+    "Batería": "Hasta 7 horas",
+    "Almacenamiento": "32GB (microSD ampliable)"
+  }
+},
+{
+  id: "CO007",
+  codigo: "CO007",
+  categoria: "consolas",
+  nombre: "PlayStation 5 Digital Edition",
+  precio: 449990,
+  // imagen: "/assets/images/ps5-digital.jpg",
+  descripcion: "La versión digital de la popular PS5, sin lector de discos.",
+  especificaciones: {
+    "CPU": "AMD Zen 2, 8 núcleos @ 3.5GHz",
+    "GPU": "AMD RDNA 2, 10.28 TFLOPS",
+    "RAM": "16GB GDDR6",
+    "Almacenamiento": "825GB SSD NVMe",
+    "Resolución": "Hasta 4K @ 120Hz"
+  }
+},
+{
+  id: "CO008",
+  codigo: "CO008",
+  categoria: "consolas",
+  nombre: "Atari VCS 800",
+  precio: 199990,
+  // imagen: "/assets/images/atari-vcs.jpg",
+  descripcion: "Moderna consola retro compatible con juegos clásicos y actuales.",
+  especificaciones: {
+    "CPU": "AMD Ryzen Embedded R1606G",
+    "GPU": "AMD Vega 3",
+    "RAM": "8GB DDR4 upgradable",
+    "Almacenamiento": "32GB eMMC + ampliable SSD",
+    "Salida": "HDMI 2.0"
+  }
+  },
+    
   // === COMPUTADORES GAMERS ===
   {
     id: "OF004",
@@ -205,6 +434,84 @@ export const productos = [
       "Refrigeración": "Líquida 240mm"
     }
   },
+    {
+  id: "CG004",
+  codigo: "CG004",
+  categoria: "computadores-gamers",
+  nombre: "PC Gamer Lenovo Legion T5",
+  precio: 1099990,
+  // imagen: "/assets/images/legion-t5.jpg",
+  descripcion: "AMD Ryzen 7, RTX 3060 Ti, 16GB RAM y SSD 1TB. Ideal para juegos exigentes.",
+  especificaciones: {
+    "Procesador": "AMD Ryzen 7 5800X",
+    "RAM": "16GB DDR4 3200MHz",
+    "GPU": "NVIDIA RTX 3060 Ti 8GB",
+    "Almacenamiento": "1TB SSD NVMe",
+    "Fuente": "750W 80+ Bronze"
+  }
+},
+{
+  id: "CG005",
+  codigo: "CG005",
+  categoria: "computadores-gamers",
+  nombre: "PC Gamer HP Omen 25L",
+  precio: 1149990,
+  // imagen: "/assets/images/hp-omen-25l.jpg",
+  descripcion: "PC de torre con Intel i7, RTX 4060, lista para streaming y VR.",
+  especificaciones: {
+    "Procesador": "Intel Core i7-13700F",
+    "RAM": "16GB DDR5 4800MHz",
+    "GPU": "NVIDIA RTX 4060 8GB",
+    "Almacenamiento": "1TB SSD NVMe",
+    "Fuente": "600W 80+"
+  }
+},
+{
+  id: "CG006",
+  codigo: "CG006",
+  categoria: "computadores-gamers",
+  nombre: "PC Gamer Alienware Aurora R13",
+  precio: 1799990,
+  // imagen: "/assets/images/alienware-r13.jpg",
+  descripcion: "Máximo rendimiento con Intel i9 y RTX 3080, refrigeración líquida.",
+  especificaciones: {
+    "Procesador": "Intel Core i9-12900KF",
+    "RAM": "32GB DDR5 5200MHz",
+    "GPU": "NVIDIA RTX 3080 10GB",
+    "Almacenamiento": "2TB SSD NVMe",
+    "Enfriamiento": "Líquido"
+  }
+},
+{
+  id: "CG007",
+  codigo: "CG007",
+  categoria: "computadores-gamers",
+  nombre: "PC Gamer Acer Predator Orion 3000",
+  precio: 1399990,
+  // imagen: "/assets/images/predator-orion.jpg",
+  descripcion: "Diseño compacto, Intel i5, RTX 3060 y RGB personalizable.",
+  especificaciones: {
+    "Procesador": "Intel Core i5-13500",
+    "RAM": "16GB DDR4 3600MHz",
+    "GPU": "NVIDIA RTX 3060 12GB",
+    "Almacenamiento": "1TB SSD NVMe"
+  }
+},
+{
+  id: "CG008",
+  codigo: "CG008",
+  categoria: "computadores-gamers",
+  nombre: "PC Gamer Gigabyte Aorus",
+  precio: 1599990,
+  // imagen: "/assets/images/aorus-gaming.jpg",
+  descripcion: "Ryzen 9, RTX 3070 Ti y LEDs RGB. Ideal para entusiastas.",
+  especificaciones: {
+    "Procesador": "AMD Ryzen 9 7900X",
+    "RAM": "32GB DDR5 5600MHz",
+    "GPU": "NVIDIA RTX 3070 Ti 8GB",
+    "Almacenamiento": "1TB SSD NVMe"
+  }
+  },
 
   // === SILLAS GAMERS ===
   {
@@ -236,6 +543,82 @@ export const productos = [
     imagen: "/assets/images/gtplayer.jpg",
     descripcion: "Silla con luces RGB, reposapiés extensible y diseño futurista."
   },
+    {
+  id: "SG004",
+  codigo: "SG004",
+  categoria: "sillas-gamers",
+  nombre: "Silla DXRacer Formula Series",
+  precio: 269990,
+  // imagen: "/assets/images/dxracer-formula.jpg",
+  descripcion: "Diseño ergonómico tipo competición, con soporte lumbar y cojín cervical incluidos.",
+  especificaciones: {
+    "Material": "Cuero PU y estructura de acero",
+    "Reclinación": "90° - 135°",
+    "Altura ajustable": "Sí",
+    "Peso máximo": "120kg",
+    "Base": "Metal reforzado"
+  }
+},
+{
+  id: "SG005",
+  codigo: "SG005",
+  categoria: "sillas-gamers",
+  nombre: "Silla Talius Mamba RGB",
+  precio: 259990,
+  // imagen: "/assets/images/talius-mamba.jpg",
+  descripcion: "Silla con tiras RGB integradas y reposabrazos 3D.",
+  especificaciones: {
+    "Material": "Cuero sintético y malla",
+    "Reclinación": "Hasta 150°",
+    "Peso máximo": "130kg",
+    "Luces": "RGB laterales USB"
+  }
+},
+{
+  id: "SG006",
+  codigo: "SG006",
+  categoria: "sillas-gamers",
+  nombre: "Silla Cougar Armor S",
+  precio: 279990,
+  // imagen: "/assets/images/cougar-armor.jpg",
+  descripcion: "Silla premium ergonómica, cojines incluidos y tela transpirable.",
+  especificaciones: {
+    "Material": "Microfibra, base acero",
+    "Peso máximo": "150kg",
+    "Reclinación": "180°",
+    "Reposabrazos": "Ajustables 4D"
+  }
+},
+{
+  id: "SG007",
+  codigo: "SG007",
+  categoria: "sillas-gamers",
+  nombre: "Silla ThunderX3 BC3 Boss",
+  precio: 219990,
+  // imagen: "/assets/images/thunderx3-bc3.jpg",
+  descripcion: "Silla estilo racing de tela con espuma premium.",
+  especificaciones: {
+    "Material": "Tela microperforada y poliuretano",
+    "Peso máximo": "150kg",
+    "Reclinación": "165°",
+    "Soporte": "Ergonómico, cojines incluidos"
+  }
+},
+{
+  id: "SG008",
+  codigo: "SG008",
+  categoria: "sillas-gamers",
+  nombre: "Silla gamer Trust GXT 707",
+  precio: 209990,
+  // imagen: "/assets/images/trust-gxt707.jpg",
+  descripcion: "Ajuste total con respaldo reclinable, diseño resistente y cojín lumbar.",
+  especificaciones: {
+    "Material": "Simil cuero",
+    "Peso máximo": "120kg",
+    "Base": "Con ruedas nylon reforzadas",
+    "Soportes": "Cervical y lumbar removibles"
+  }
+},
 
   // === MOUSE ===
   {
@@ -287,6 +670,86 @@ export const productos = [
       "DPI": "Hasta 25,600",
       "Conexión": "Inalámbrico Lightspeed"
     }
+  },
+    {
+  id: "MS004",
+  codigo: "MS004",
+  categoria: "mouse",
+  nombre: "Mouse Corsair Dark Core RGB Pro",
+  precio: 89990,
+  // imagen: "/assets/images/darkcore.jpg",
+  descripcion: "Mouse inalámbrico RGB con sensor de alta precisión y carga rápida Qi.",
+  especificaciones: {
+    "Sensor": "PixArt PAW3392",
+    "DPI": "Hasta 18,000",
+    "Conectividad": "Bluetooth / 2.4GHz",
+    "Autonomía": "Hasta 50 horas",
+    "Iluminación": "9 zonas RGB personalizables"
+  }
+},
+{
+  id: "MS005",
+  codigo: "MS005",
+  categoria: "mouse",
+  nombre: "Mouse SteelSeries Rival 600",
+  precio: 69990,
+  // imagen: "/assets/images/rival600.jpg",
+  descripcion: "Sensor dual para máxima precisión, sistema de pesas ajustable.",
+  especificaciones: {
+    "Sensor": "TrueMove3+ dual",
+    "DPI": "Hasta 12,000",
+    "Peso": "96g a 128g (ajustable)",
+    "Botones": "8 programables",
+    "Conexión": "USB"
+  }
+},
+{
+  id: "MS006",
+  codigo: "MS006",
+  categoria: "mouse",
+  nombre: "Mouse Glorious Model O",
+  precio: 54990,
+  // imagen: "/assets/images/model-o.jpg",
+  descripcion: "Ultraligero con 67g, cable flexible y RGB.",
+  especificaciones: {
+    "Sensor": "Pixart PMW-3360",
+    "DPI": "Hasta 12,000",
+    "Peso": "67g",
+    "Iluminación": "RGB",
+    "Conexión": "USB"
+  }
+},
+{
+  id: "MS007",
+  codigo: "MS007",
+  categoria: "mouse",
+  nombre: "Mouse Redragon M808 Storm",
+  precio: 29990,
+  // imagen: "/assets/images/redragon-m808.jpg",
+  descripcion: "Diseño de panal ultraligero con iluminación RGB controlable.",
+  especificaciones: {
+    "Sensor": "Pixart 3327",
+    "DPI": "Hasta 12,400",
+    "Peso": "85g",
+    "Iluminación": "RGB dinámica",
+    "Botones": "7 programables"
+  }
+},
+{
+  id: "MS008",
+  codigo: "MS008",
+  categoria: "mouse",
+  nombre: "Mouse ASUS ROG Gladius III",
+  precio: 79990,
+  // imagen: "/assets/images/rog-gladius3.jpg",
+  descripcion: "Sensor óptico de 26,000 DPI, switches intercambiables y diseño ergonómico.",
+  especificaciones: {
+    "Sensor": "ROG AimPoint 26,000 DPI",
+    "Peso": "89g",
+    "Botones": "6 programables",
+    "Iluminación": "Aura RGB",
+    "Switches": "Intercambiables"
+  }
   },
 
   // === MOUSEPAD ===
@@ -413,6 +876,80 @@ export const productos = [
       "Pantalla": "OLED de 5.5\""
     }
   },
+    {
+  id: "ST005",
+  codigo: "ST005",
+  categoria: "perifericos-streaming",
+  nombre: "Micrófono Shure MV7",
+  precio: 199990,
+  // imagen: "/assets/images/shure-mv7.jpg",
+  descripcion: "Micrófono híbrido USB/XLR con sonido profesional y control táctil.",
+  especificaciones: {
+    "Tipo": "Dinámico",
+    "Conexión": "USB y XLR",
+    "Patrón": "Cardioide",
+    "Respuesta de frecuencia": "50Hz - 16kHz",
+    "Requisitos": "Windows, macOS, iOS"
+  }
+},
+{
+  id: "ST006",
+  codigo: "ST006",
+  categoria: "perifericos-streaming",
+  nombre: "Webcam Razer Kiyo Pro",
+  precio: 149990,
+  // imagen: "/assets/images/kiyo-pro.jpg",
+  descripcion: "Cámara Full HD con sensor adaptativo a la luz y anillo de iluminación.",
+  especificaciones: {
+    "Resolución": "1080p @ 60fps",
+    "Lente": "Gran angular",
+    "Iluminación": "Anillo ajustable",
+    "Conexión": "USB 3.0"
+  }
+},
+{
+  id: "ST007",
+  codigo: "ST007",
+  categoria: "perifericos-streaming",
+  nombre: "Elgato Green Screen",
+  precio: 129990,
+  // imagen: "/assets/images/green-screen.jpg",
+  descripcion: "Panel chroma plegable y portátil, fácil despliegue para streams.",
+  especificaciones: {
+    "Tamaño": "148 x 180 cm",
+    "Material": "Tela poliéster",
+    "Portabilidad": "Estructura retráctil"
+  }
+},
+{
+  id: "ST008",
+  codigo: "ST008",
+  categoria: "perifericos-streaming",
+  nombre: "Soporte brazo articulado Blue Compass",
+  precio: 89990,
+  // imagen: "/assets/images/blue-compass.jpg",
+  descripcion: "Brazo premium para micrófono, rotación de 360° y manejo integrado de cable.",
+  especificaciones: {
+    "Longitud": "80cm total",
+    "Rotación": "360°",
+    "Compatibilidad": "Micrófonos estándar",
+    "Carga máxima": "1kg"
+  }
+},
+{
+  id: "ST009",
+  codigo: "ST009",
+  categoria: "perifericos-streaming",
+  nombre: "Elgato Cam Link 4K",
+  precio: 109990,
+  // imagen: "/assets/images/camlink4k.jpg",
+  descripcion: "Convierte tu cámara réflex, videocámara o action cam en webcam 4K.",
+  especificaciones: {
+    "Resolución máxima": "4K @ 30fps",
+    "Conexión": "USB 3.0",
+    "Compatibilidad": "HDMI cámaras DSLR/mirrorless"
+  }
+},
 
   // === ILUMINACIÓN RGB ===
   {
@@ -464,5 +1001,83 @@ export const productos = [
       "LEDs": "16 RGB direccionables",
       "Conexión": "PWM + Corsair iCUE"
     }
+  },
+  {
+  id: "IL004",
+  codigo: "IL004",
+  categoria: "iluminacion-rgb",
+  nombre: "Nanoleaf Shapes Hexagons Starter Kit",
+  precio: 189990,
+  // imagen: "/assets/images/nanoleaf-hex.jpg",
+  descripcion: "Paneles LED modulares con sincronización musical y control por voz.",
+  especificaciones: {
+    "Unidades incluidas": "9 paneles hexagonales",
+    "Colores": "16 millones",
+    "Control": "App Nanoleaf / Google Assistant / Alexa",
+    "Montaje": "Adhesivo o magnético",
+    "Sincronización": "Reacciona al sonido y contenido en pantalla"
   }
+},
+{
+  id: "IL005",
+  codigo: "IL005",
+  categoria: "iluminacion-rgb",
+  nombre: "Philips Hue Go v2",
+  precio: 89990,
+  // imagen: "/assets/images/hue-go.jpg",
+  descripcion: "Lámpara portátil RGB recargable con control por app y voz.",
+  especificaciones: {
+    "Tipo": "Luz LED portátil",
+    "Colores": "16 millones",
+    "Batería": "Hasta 18 horas",
+    "Control": "App/Google/Alexa",
+    "Conexión": "Bluetooth/Bridge Philips Hue"
+  }
+},
+{
+  id: "IL006",
+  codigo: "IL006",
+  categoria: "iluminacion-rgb",
+  nombre: "Kit LED Corsair iCUE LS100",
+  precio: 99990,
+  // imagen: "/assets/images/ls100.jpg",
+  descripcion: "Tiras LED inteligentes para monitor, sincronizables con juegos.",
+  especificaciones: {
+    "Longitud": "4x 450 mm",
+    "Colores": "RGB direccionable",
+    "Control": "Corsair iCUE",
+    "Montaje": "Adhesivo"
+  }
+},
+{
+  id: "IL007",
+  codigo: "IL007",
+  categoria: "iluminacion-rgb",
+  nombre: "Lámpara Trust GXT 256 Exxo",
+  precio: 34990,
+  // imagen: "/assets/images/trust-exxo.jpg",
+  descripcion: "Lámpara de mesa RGB, varios modos de luz y control táctil.",
+  especificaciones: {
+    "Tipo": "Luz de escritorio",
+    "Colores": "RGB y blanco cálido",
+    "Control": "Táctil y por app",
+    "Base": "Antideslizante"
+  }
+},
+{
+  id: "IL008",
+  codigo: "IL008",
+  categoria: "iluminacion-rgb",
+  nombre: "Paneles LED Cololight Plus",
+  precio: 129990,
+  // imagen: "/assets/images/cololight-plus.jpg",
+  descripcion: "Paneles hexagonales RGB expandibles compatibles con Alexa.",
+  especificaciones: {
+    "Unidades": "6 paneles básicos",
+    "Colores": "16 millones",
+    "Control": "App/Alexa/Google Home",
+    "Montaje": "Magnético/adhesivo"
+  }
+},
+  
 ];

@@ -1,144 +1,117 @@
 // src/pages/Perfil.jsx
 import React, { useState } from 'react';
 import { productos } from '../data/productos';
+import '../styles/Perfil.css';
+
+// Utilidad para generar código de referido único (sin usar 'usuario' global)
+function generarCodigoReferido(email, actualCodigoReferido = '') {
+  const nombre = email ? email.split('@')[0] : 'user';
+  const random = actualCodigoReferido
+    ? actualCodigoReferido.split('-').pop()
+    : Math.floor(Math.random() * 10000);
+  return `LVUP-${nombre}-${random}`;
+}
 
 function Perfil() {
   const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
   const [nombre, setNombre] = useState(usuario.nombre || '');
   const recomendaciones = productos.filter(p => p.categoria === 'accesorios');
 
+  // Generar código si no existe (evita duplicados)
+  if (!usuario.codigoReferido) {
+    usuario.codigoReferido = generarCodigoReferido(usuario.email);
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+  }
+
+  // SUMATORIA de puntos: base+referidos (lee todos los usuarios en localStorage)
+  let sumatoriaReferidos = 0;
+  const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+  const referidosRecibidos = usuarios.filter(
+    u => u.codigoReferidoUsado === usuario.codigoReferido
+  );
+  sumatoriaReferidos = referidosRecibidos.length * 100;
+  const puntosTotales = (usuario.puntos || 100) + sumatoriaReferidos;
+
   const guardarPerfil = () => {
     const usuarioActualizado = { ...usuario, nombre };
     localStorage.setItem('usuario', JSON.stringify(usuarioActualizado));
-    alert("Perfil actualizado");
+    alert('Perfil actualizado');
   };
 
   return (
-    <div className="perfil-container" style={{
-      padding: '2rem',
-      color: 'white',
-      maxWidth: '1000px',
-      margin: '2rem auto',
-      fontFamily: 'Arial, sans-serif'
-    }}>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        marginBottom: '2rem',
-        borderBottom: '1px solid #444',
-        paddingBottom: '1rem'
-      }}>
+    <div className="perfil-container">
+      <div className="perfil-header">
         <div>
-          <h2 style={{ margin: '0 0 0.5rem 0', color: '#39FF14' }}>Mi Perfil</h2>
-          <p style={{ margin: '0', opacity: 0.8 }}>Gestiona tu información y descubre recomendaciones</p>
+          <h2 className="perfil-titulo">Mi Perfil</h2>
+          <p className="perfil-descripcion">
+            Gestiona tu información y descubre recomendaciones
+          </p>
         </div>
-        <div style={{
-          width: '60px',
-          height: '60px',
-          borderRadius: '50%',
-          background: '#39FF14',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'black',
-          fontWeight: 'bold',
-          fontSize: '1.5rem'
-        }}>
-          {usuario.nombre?.charAt(0).toUpperCase() || usuario.email.charAt(0).toUpperCase()}
+        <div className="perfil-avatar">
+          {usuario.nombre?.charAt(0).toUpperCase() ||
+            usuario.email?.charAt(0).toUpperCase()}
         </div>
       </div>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '2rem',
-        marginBottom: '3rem'
-      }}>
-        <div>
-          <h3 style={{ color: '#39FF14', marginBottom: '1rem' }}>Información Personal</h3>
-          <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Nombre</label>
+      <div className="perfil-main">
+        <div className="perfil-personal-info">
+          <h3 className="perfil-subtitulo">Información Personal</h3>
+          <div className="perfil-form-group">
+            <label className="perfil-label">Nombre</label>
             <input
               value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
+              onChange={e => setNombre(e.target.value)}
               placeholder="Tu nombre completo"
-              style={{
-                width: '100%',
-                padding: '0.8rem',
-                borderRadius: '8px',
-                border: '1px solid #444',
-                background: '#1a1a1a',
-                color: 'white'
-              }}
+              className="perfil-input"
             />
           </div>
-          <p><strong>Correo:</strong> {usuario.email}</p>
-          <p><strong>Puntos LevelUp:</strong> <span style={{ color: '#39FF14', fontWeight: 'bold' }}>{usuario.puntos || 100}</span></p>
-          <p><strong>Nivel:</strong> {usuario.nivel || 'Bronce'}</p>
-          <p><strong>Descuento:</strong> {usuario.descuento || 0}%</p>
-          <button
-            onClick={guardarPerfil}
-            style={{
-              marginTop: '1rem',
-              padding: '0.8rem 1.5rem',
-              background: '#39FF14',
-              color: 'black',
-              border: 'none',
-              borderRadius: '6px',
-              fontWeight: '600',
-              cursor: 'pointer'
-            }}
-          >
+          <p>
+            <strong>Correo:</strong> {usuario.email}
+          </p>
+          <p>
+            <strong>Puntos Base:</strong>{' '}
+            <span className="perfil-puntos">{usuario.puntos || 100}</span>
+          </p>
+          <p>
+            <strong>Puntos ganados por referidos:</strong>{' '}
+            <span className="perfil-puntos">{sumatoriaReferidos}</span>
+          </p>
+          <p>
+            <strong>Puntos Totales:</strong>{' '}
+            <span className="perfil-puntos">{puntosTotales}</span>
+          </p>
+          <p>
+            <strong>Nivel:</strong> {usuario.nivel || 'Bronce'}
+          </p>
+          <p>
+            <strong>Descuento:</strong> {usuario.descuento || 0}%
+          </p>
+          <p>
+            <strong>Tu código de referido:</strong>{' '}
+            <span style={{ color: '#39FF14' }}>
+              {usuario.codigoReferido}
+            </span>
+          </p>
+          <button onClick={guardarPerfil} className="perfil-btn">
             Guardar Cambios
           </button>
         </div>
 
-        <div>
-          <h3 style={{ color: '#39FF14', marginBottom: '1rem' }}>Recomendaciones para ti</h3>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '1rem'
-          }}>
+        <div className="perfil-recomendaciones">
+          <h3 className="perfil-subtitulo">Recomendaciones para ti</h3>
+          <div className="recomendaciones-grid">
             {recomendaciones.slice(0, 4).map(p => (
-              <div key={p.id} style={{
-                border: '1px solid #444',
-                borderRadius: '8px',
-                overflow: 'hidden',
-                background: '#1a1a1a'
-              }}>
-                <div style={{
-                  height: '120px',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: '#111'
-                }}>
+              <div key={p.id} className="recomendacion-card">
+                <div className="recomendacion-img">
                   <img
                     src={p.imagen}
                     alt={p.nombre}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
-                    }}
+                    className="recomendacion-foto"
                   />
                 </div>
-                <div style={{ padding: '0.8rem' }}>
-                  <h4 style={{
-                    margin: '0 0 0.5rem 0',
-                    fontSize: '0.9rem',
-                    fontWeight: '500'
-                  }}>
-                    {p.nombre}
-                  </h4>
-                  <p style={{
-                    color: '#39FF14',
-                    fontWeight: 'bold',
-                    margin: '0'
-                  }}>
+                <div className="recomendacion-datos">
+                  <h4 className="recomendacion-nombre">{p.nombre}</h4>
+                  <p className="recomendacion-precio">
                     ${p.precio.toLocaleString()}
                   </p>
                 </div>

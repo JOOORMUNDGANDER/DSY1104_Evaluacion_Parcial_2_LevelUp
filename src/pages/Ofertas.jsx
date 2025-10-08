@@ -1,15 +1,15 @@
-// src/components/Ofertas.jsx
+// src/pages/Ofertas.jsx
 import React, { useState } from 'react';
 import { productos } from '../data/productos';
 import { useCarrito } from '../context/CarritoContext';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Ofertas.css';
+import '../styles/Catalogo.css';
 
 function Ofertas() {
   const [busqueda, setBusqueda] = useState('');
   const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
   const [precioMin, setPrecioMin] = useState(0);
-  const [precioMax, setPrecioMax] = useState(1000000);
+  const [precioMax, setPrecioMax] = useState(3000000);
   const [toast, setToast] = useState({ show: false, nombre: '' });
 
   const { dispatch } = useCarrito();
@@ -43,10 +43,11 @@ function Ofertas() {
     'iluminacion-rgb'
   ];
 
-  const formatearCategoria = (categoria) =>
-    categoria.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const formatearCategoria = (categoria) => {
+    return categoria.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+  };
 
-  // Solo productos en oferta, aplicando filtros
+  // Solo productos en oferta
   const productosFiltrados = productos.filter(p =>
     p.oferta &&
     p.nombre.toLowerCase().includes(busqueda.toLowerCase()) &&
@@ -58,13 +59,12 @@ function Ofertas() {
     setBusqueda('');
     setCategoriasSeleccionadas([]);
     setPrecioMin(0);
-    setPrecioMax(1000000);
+    setPrecioMax(3000000);
   };
 
   return (
-    <div className="ofertas-container">
-      <h1>Ofertas Especiales</h1>
-      <p>¡Descubre productos en oferta de todas tus categorías favoritas y ahorra con grandes descuentos!</p>
+    <div className="catalogo-container">
+      <h2>Ofertas Especiales</h2>
 
       {toast.show && (
         <div className="toast-carrito">
@@ -108,7 +108,7 @@ function Ofertas() {
                     onChange={(e) => setPrecioMax(Number(e.target.value))}
                     className="precio-input"
                     min={precioMin}
-                    max="1000000"
+                    max="3000000"
                   />
                 </div>
               </div>
@@ -141,7 +141,7 @@ function Ofertas() {
             {productosFiltrados.length} productos en oferta encontrados
           </div>
         </aside>
-        <section className="ofertas-grid">
+        <section className="catalogo-grid">
           {productosFiltrados.length === 0 ? (
             <div className="sin-resultados">
               <p>😓 No se encontraron ofertas con esos filtros.</p>
@@ -150,24 +150,25 @@ function Ofertas() {
             productosFiltrados.map(p => (
               <div
                 key={p.id}
-                className="producto-oferta"
-                onClick={() => navigate(`/producto/${p.id}`)}
+                className="producto-card"
                 style={{ position: 'relative', cursor: 'pointer' }}
+                onClick={() => navigate(`/producto/${p.id}`)}
               >
-                <div className="sticker-oferta">¡OFERTA!</div>
-                <img src={p.imagen} alt={p.nombre} />
-                <div className="producto-oferta-info">
+                {/* Sticker visual solo para ofertas */}
+                <span className="sticker-oferta">¡OFERTA!</span>
+                <div className="producto-imagen">
+                  <img src={p.imagen} alt={p.nombre} />
+                </div>
+                <div className="producto-info">
                   <h3>{p.nombre}</h3>
-                  <p className="producto-descripcion">{p.descripcion}</p>
+                  <p>{p.descripcion}</p>
+                  <p className="producto-precio">${p.precio.toLocaleString()} CLP</p>
                   {p.precioOriginal && (
-                    <span className="precio-original">${p.precioOriginal.toLocaleString()} CLP</span>
+                    <span className="precio-original">{p.precioOriginal.toLocaleString()} CLP</span>
                   )}
-                  <span className="precio-oferta">${p.precio.toLocaleString()} CLP</span>
-                  {p.descuento && (
-                    <span className="descuento">-{p.descuento}%</span>
-                  )}
+                  {p.descuento && <span className="producto-oferta">-{p.descuento}%</span>}
                   <button
-                    onClick={e => {
+                    onClick={(e) => {
                       e.stopPropagation();
                       agregarAlCarrito(p);
                     }}

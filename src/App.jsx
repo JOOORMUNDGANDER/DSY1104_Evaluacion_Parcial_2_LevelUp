@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -20,43 +19,44 @@ import Eventos from './pages/Eventos';
 
 import RutaProtegida from './components/RutaProtegida';
 
+// Ya no uses "container" de Bootstrap. Puedes dejar Bootstrap para otros componentes.
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <Router>
-        <NavbarPrincipal />
-        <main className="container mt-4">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/catalogo" element={<Catalogo />} />
-            <Route path="/ofertas" element={<Ofertas />} />
-            <Route path="/servicios" element={<Servicios />} />
-            <Route path="/contacto" element={<Contacto />} />
-            <Route path="/producto/:id" element={<ProductoDetalle />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/eventos" element={<Eventos />} />
-            <Route
-              path="/carrito"
-              element={
-                <RutaProtegida>
-                  <CarritoPage />
-                </RutaProtegida>
-              }
-            />
-            <Route
-              path="/perfil"
-              element={
-                <RutaProtegida>
-                  <Perfil />
-                </RutaProtegida>
-              }
-            />
-            <Route path="/login" element={<Login />} />
-            <Route path="/registro" element={<Registro />} />
-          </Routes>
-        </main>
-        <Footer />
+      <NavbarPrincipal />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalogo" element={<Catalogo />} />
+          <Route path="/ofertas" element={<Ofertas />} />
+          <Route path="/servicios" element={<Servicios />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/producto/:id" element={<ProductoDetalle />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/eventos" element={<Eventos />} />
+          <Route
+            path="/carrito"
+            element={
+              <RutaProtegida>
+                <CarritoPage />
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/perfil"
+            element={
+              <RutaProtegida>
+                <Perfil />
+              </RutaProtegida>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
+        </Routes>
+      </main>
+      <Footer />
     </Router>
   );
 }

@@ -1,61 +1,69 @@
-/* src/components/BlogCard.css */
-
 .blog-card {
-  background: #111;
+  background: #16161a;
   padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid #6A0DAD;
+  border-radius: 18px;
+  border: 1px solid #e3b442;
   color: white;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.2);
+  transition: all 0.3s;
+  box-shadow: 0 6px 20px rgba(57,255,20,0.13);
   max-width: 350px;
   margin: 0 auto;
+  font-family: 'Roboto', 'Orbitron', Arial, sans-serif;
 }
 
 .blog-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(106, 13, 173, 0.4);
-  border-color: #9D4EDD;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(227, 180, 66, 0.22);
+  border-color: #39FF14;
+}
+
+.blog-img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 13px;
+  margin-bottom: 1rem;
+  border: 2px solid #39FF14;
 }
 
 .blog-title {
   font-size: 1.4rem;
   color: #FFD700;
   margin: 0 0 0.5rem 0;
-  font-weight: 600;
-  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+  font-family: 'Orbitron', 'Roboto', Arial, sans-serif;
+  font-weight: 700;
 }
 
 .blog-date {
-  color: #9D4EDD;
-  font-size: 0.9rem;
+  color: #e3b442;
+  font-size: 0.97rem;
   margin: 0 0 1rem 0;
   font-weight: 500;
 }
 
 .blog-content {
-  color: #D3D3D3;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin: 0 0 1.2rem 0;
+  color: #eee;
+  font-size: 1rem;
+  line-height: 1.56;
+  margin: 0 0 1.1rem 0;
   text-align: justify;
 }
 
 .btn-leer-mas {
-  background: linear-gradient(145deg, #FFD700, #B8860B);
-  color: #000;
+  background: linear-gradient(135deg, #39FF14 60%, #e3b442 100%);
+  color: #19161a;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  font-weight: 600;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.23s, transform 0.23s;
   width: 100%;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .btn-leer-mas:hover {
-  background: linear-gradient(145deg, #FFC107, #9C6A00);
+  background: linear-gradient(90deg,#e3b442 48%, #39FF14 100%);
   transform: scale(1.03);
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 14px #39FF14;
 }

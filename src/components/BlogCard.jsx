@@ -1,22 +1,26 @@
-// src/components/BlogCard.jsx
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../styles/BlogCard.css';
 
 function BlogCard({ blog }) {
-  const navigate = useNavigate();
-
+  // Si usas assets locales, puedes importar y reemplazar el src de la imagen aquí.
   return (
     <div className="blog-card">
+      {/* Imagen opcional, reemplaza por la URL real */}
+      {/* <img src={blog.imagen} alt={blog.titulo} className="blog-img" /> */}
+      {blog.imagen && (
+        <img src={blog.imagen} alt={blog.titulo} className="blog-img" />
+      )}
       <h3 className="blog-title">{blog.titulo}</h3>
       <p className="blog-date">{blog.fecha}</p>
       <p className="blog-content">{blog.contenido}</p>
-      <button
+      <a
         className="btn-leer-mas"
-        onClick={() => navigate(`/blog/${blog.id}`)}
+        href={blog.enlace}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Leer más
-      </button>
+      </a>
     </div>
   );
 }

@@ -1,0 +1,138 @@
+/* src/pages/Perfil.css */
+
+.perfil-container {
+  padding: 2rem;
+  color: white;
+  max-width: 1000px;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+}
+
+.perfil-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 1rem;
+}
+
+.perfil-titulo {
+  margin: 0 0 0.5rem 0;
+  color: #39FF14;
+}
+
+.perfil-descripcion {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.perfil-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #39FF14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.perfil-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.perfil-personal-info {
+}
+
+.perfil-subtitulo {
+  color: #39FF14;
+  margin-bottom: 1rem;
+}
+
+.perfil-form-group {
+  margin-bottom: 1rem;
+}
+
+.perfil-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.perfil-input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: white;
+}
+
+.perfil-puntos {
+  color: #39FF14;
+  font-weight: bold;
+}
+
+.perfil-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: #39FF14;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.perfil-recomendaciones {
+}
+
+.recomendaciones-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.recomendacion-card {
+  border: 1px solid #444;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.recomendacion-img {
+  height: 120px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+}
+
+.recomendacion-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recomendacion-datos {
+  padding: 0.8rem;
+}
+
+.recomendacion-nombre {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.recomendacion-precio {
+  color: #39FF14;
+  font-weight: bold;
+  margin: 0;
+}

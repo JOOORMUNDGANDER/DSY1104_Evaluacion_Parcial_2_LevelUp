@@ -1,5 +1,11 @@
-// src/pages/Registro.jsx
 import React, { useState } from 'react';
+import '../styles/Registro.css'; // Importa tu CSS
+
+function generarCodigoReferido(email) {
+  const nombre = email.split('@')[0];
+  const random = Math.floor(Math.random() * 10000);
+  return `LVUP-${nombre}-${random}`;
+}
 
 function Registro() {
   const [email, setEmail] = useState('');
@@ -35,12 +41,13 @@ function Registro() {
     // Crear usuario
     const usuario = {
       email,
-      password, // ✅ Guardamos la contraseña (en producción, nunca en texto plano)
+      password,
       fechaNacimiento,
       descuento,
       puntos,
       nivel: 'Bronce',
-      nombre: email.split('@')[0] // Nombre por defecto
+      nombre: email.split('@')[0],
+      codigoReferido: generarCodigoReferido(email)
     };
 
     // Guardar en localStorage
@@ -49,16 +56,9 @@ function Registro() {
   };
 
   return (
-    <div className="registro-container" style={{
-      padding: '2rem',
-      color: 'white',
-      maxWidth: '400px',
-      margin: '2rem auto',
-      fontFamily: 'Arial, sans-serif'
-    }}>
-      <h2 style={{ color: '#39FF14', marginBottom: '1.5rem' }}>Registro</h2>
-
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+    <div className="registro-container">
+      <h2 className="registro-title">Registro</h2>
+      <form onSubmit={handleSubmit} className="registro-form">
         {/* Email */}
         <input
           type="email"
@@ -66,7 +66,7 @@ function Registro() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          style={inputStyle}
+          className="registro-input"
         />
 
         {/* Contraseña */}
@@ -76,7 +76,7 @@ function Registro() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          style={inputStyle}
+          className="registro-input"
         />
 
         {/* Fecha de nacimiento */}
@@ -85,7 +85,7 @@ function Registro() {
           value={fechaNacimiento}
           onChange={(e) => setFechaNacimiento(e.target.value)}
           required
-          style={inputStyle}
+          className="registro-input"
         />
 
         {/* Código de referido (opcional) */}
@@ -94,48 +94,20 @@ function Registro() {
           placeholder="Código de referido (opcional)"
           value={codigoReferido}
           onChange={(e) => setCodigoReferido(e.target.value)}
-          style={inputStyle}
+          className="registro-input"
         />
 
         {/* Botón */}
-        <button
-          type="submit"
-          style={{
-            ...inputStyle,
-            background: '#39FF14',
-            color: 'black',
-            fontWeight: '600',
-            cursor: 'pointer',
-            padding: '0.8rem',
-            marginTop: '1rem'
-          }}
-        >
+        <button type="submit" className="registro-btn">
           Registrarse
         </button>
       </form>
 
-      <p style={{
-        marginTop: '1rem',
-        fontSize: '0.9rem',
-        textAlign: 'center',
-        opacity: 0.8
-      }}>
-        Al registrarte, aceptas nuestros <a href="#" style={{ color: '#39FF14' }}>Términos</a> y <a href="#" style={{ color: '#39FF14' }}>Política de Privacidad</a>.
+      <p className="registro-terminos">
+        Al registrarte, aceptas nuestros <a href="#">Términos</a> y <a href="#">Política de Privacidad</a>.
       </p>
     </div>
   );
 }
-
-// Estilos compactos para inputs
-const inputStyle = {
-  padding: '0.7rem',
-  marginBottom: '0.8rem',
-  borderRadius: '6px',
-  border: '1px solid #444',
-  background: '#1a1a1a',
-  color: 'white',
-  fontSize: '0.95rem',
-  width: '100%'
-};
 
 export default Registro;

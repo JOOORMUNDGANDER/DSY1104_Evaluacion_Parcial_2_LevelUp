@@ -105,7 +105,7 @@ function Eventos() {
         ))}
       </div>
 
-      <h2>📰 Noticias Gamer Oficiales</h2>
+      <h2 className="noticias-oficiales-titulo">📰 Noticias Gamer Oficiales</h2>
       <div className="noticias-grid">
         {noticias.map(noticia => (
           <div key={noticia.id} className="noticia-card">

@@ -23,6 +23,9 @@ function Contacto() {
     setForm({ nombre: '', email: '', asunto: '', mensaje: '' });
   };
 
+  // WhatsApp contacto
+  const whatsappLink = "https://wa.me/56912345678?text=Hola!%20Necesito%20soporte%20técnico%20para%20LevelUp%20Gamer";
+
   return (
     <div className="contacto-container">
       <h1>Contáctanos</h1>
@@ -40,12 +43,12 @@ function Contacto() {
               +56 9 1234 5678
             </div>
           </div>
-
+          
           <div className="contacto-info-item">
             <span>📧</span>
             <div>
               <strong>Correo</strong><br />
-              contacto@levelupgamer.cl
+              <a href="mailto:contacto@levelupgamer.cl" style={{color:'#FFD700'}}>contacto@levelupgamer.cl</a>
             </div>
           </div>
 
@@ -76,6 +79,15 @@ function Contacto() {
                 <a href="#" aria-label="Twitter">🐦</a>
                 <a href="#" aria-label="YouTube">▶️</a>
               </div>
+            </div>
+          </div>
+          <div className="contacto-info-item">
+            <span>💬</span>
+            <div>
+              <strong>Soporte técnico inmediato:</strong><br />
+              <a className="btn-whatsapp" href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <span role="img" aria-label="WhatsApp">🟢</span> Chatear por WhatsApp
+              </a>
             </div>
           </div>
         </div>

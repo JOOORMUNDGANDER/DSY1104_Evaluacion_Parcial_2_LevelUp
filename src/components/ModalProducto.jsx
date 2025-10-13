@@ -1,4 +1,3 @@
-// src/components/ModalProducto.jsx
 import React from 'react';
 import '../styles/ModalProducto.css';
 
@@ -7,7 +6,7 @@ function ModalProducto({ producto, onClose }) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>✕</button>
 
         <div className="modal-header">
@@ -16,15 +15,23 @@ function ModalProducto({ producto, onClose }) {
 
         <div className="modal-body">
           <h2>{producto.nombre}</h2>
-          <p className="modal-categoria">{producto.categoria.replace('-', ' ').toUpperCase()}</p>
+          <p className="modal-categoria">
+            {producto.categoria.replace('-', ' ').toUpperCase()}
+          </p>
 
-          <p className="modal-descripcion">{producto.descripcion}</p>
+          <p className="modal-descripcion">
+            {producto.descripcion}
+          </p>
 
           <div className="modal-precios">
             {producto.precioOriginal && (
-              <p className="precio-original">${producto.precioOriginal.toLocaleString()} CLP</p>
+              <p className="precio-original">
+                ${producto.precioOriginal.toLocaleString()} CLP
+              </p>
             )}
-            <p className="precio-oferta">${producto.precio.toLocaleString()} CLP</p>
+            <p className="precio-oferta">
+              ${producto.precio.toLocaleString()} CLP
+            </p>
           </div>
 
           {producto.oferta && (
@@ -33,10 +40,9 @@ function ModalProducto({ producto, onClose }) {
             </div>
           )}
 
-          {/* Especificaciones (solo si existen) */}
           {tieneEspecificaciones && (
             <div className="modal-especificaciones">
-              <h3>📌 Especificaciones</h3>
+              <h3>Especificaciones</h3>
               <table className="tabla-especs">
                 <tbody>
                   {Object.entries(producto.especificaciones).map(([clave, valor]) => (
@@ -52,10 +58,13 @@ function ModalProducto({ producto, onClose }) {
         </div>
 
         <div className="modal-footer">
-          <button className="btn-agregar" onClick={(e) => {
-            e.stopPropagation();
-            alert(`${producto.nombre} agregado al carrito`);
-          }}>
+          <button
+            className="btn-agregar"
+            onClick={e => {
+              e.stopPropagation();
+              alert(`🛒 ${producto.nombre} agregado al carrito`);
+            }}
+          >
             🛒 Agregar al carrito
           </button>
           <button className="btn-cerrar" onClick={onClose}>

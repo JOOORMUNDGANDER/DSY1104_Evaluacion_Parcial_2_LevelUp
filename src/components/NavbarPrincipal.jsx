@@ -23,51 +23,43 @@ function NavbarPrincipal() {
     : '';
 
   return (
-    <nav className="navbar">
-      <NavLink to="/" className="navbar-logo">
-        Level-Up Gamer
-      </NavLink>
+  <nav className="navbar">
+    <NavLink to="/" className="navbar-logo">
+      Level-Up Gamer
+    </NavLink>
 
-      <div className="navbar-links">
-        <NavLink
-          to="/catalogo"
-          className={({ isActive }) =>
-            "navbar-link" + (isActive ? " navbar-link-active" : "")
-          }
-        >
-          Catálogo
-        </NavLink>
-        <NavLink
-          to="/ofertas"
-          className={({ isActive }) =>
-            "navbar-link navbar-link-ofertas" +
-            (isActive ? " navbar-link-active" : "")
-          }
-        >
-          🔥 Ofertas
-        </NavLink>
-        <NavLink
-          to="/eventos"
-          className={({ isActive }) =>
-            "navbar-link" + (isActive ? " navbar-link-active" : "")
-          }
-        >
-          Eventos
-        </NavLink>
-        <NavLink
-          to="/blog"
-          className={({ isActive }) =>
-            "navbar-link" + (isActive ? " navbar-link-active" : "")
-          }
-        >
-          Blog
-        </NavLink>
-        <NavLink
-          to="/contacto"
-          className={({ isActive }) =>
-            "navbar-link" + (isActive ? " navbar-link-active" : "")
-          }
-        >
+    <div className="navbar-links">
+      <NavLink
+        to="/catalogo"
+        className={({ isActive }) =>
+          "navbar-link" + (isActive ? " navbar-link-active" : "")
+        }
+      >
+        Catálogo
+      </NavLink>
+      {/* Ofertas ELIMINADO */}
+      <NavLink
+        to="/eventos"
+        className={({ isActive }) =>
+          "navbar-link" + (isActive ? " navbar-link-active" : "")
+        }
+      >
+        Eventos
+      </NavLink>
+      <NavLink
+        to="/blog"
+        className={({ isActive }) =>
+          "navbar-link" + (isActive ? " navbar-link-active" : "")
+        }
+      >
+        Blog
+      </NavLink>
+      <NavLink
+        to="/contacto"
+        className={({ isActive }) =>
+          "navbar-link" + (isActive ? " navbar-link-active" : "")
+        }
+      >
           Contacto
         </NavLink>
       </div>

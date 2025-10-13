@@ -1,9 +1,9 @@
-// src/components/ProductoDetalle.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { productos } from '../data/productos';
 import { useCarrito } from '../context/CarritoContext';
 import OpinionesProducto from '../components/OpinionesProducto';
+import ShareButton from '../components/ShareButton';
 import '../styles/ProductoDetalle.css';
 
 function ProductoDetalle() {
@@ -69,17 +69,21 @@ function ProductoDetalle() {
           {producto.oferta && (
             <p className="detalle-oferta">🔥 ¡En oferta!</p>
           )}
-          <p className="detalle-descripcion">{producto.descripcion}</p>
+          <p className="detalle-descripcion">{producto.descripcionProducto || producto.descripcion}</p>
           <div className="detalle-botones">
             <button onClick={agregarAlCarrito}>Agregar al carrito</button>
             <button onClick={comprarAhora} className="comprar-btn">Comprar ahora</button>
             <button className="volver-btn" onClick={() => navigate(-1)}>Volver al catálogo</button>
           </div>
+          {/* Share buttons para redes sociales */}
+          <ShareButton producto={producto} />
         </div>
       </div>
 
-      {/* Agregamos las opiniones al final del detalle */}
-      <OpinionesProducto productoId={producto.id} />
+      {/* Bloque aparte para opiniones */}
+      <div className="opiniones-bloque">
+        <OpinionesProducto productoId={producto.id} />
+      </div>
     </div>
   );
 }

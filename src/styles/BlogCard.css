@@ -1,20 +1,20 @@
 .blog-card {
-  background: #16161a;
+  background: #181622;
   padding: 1.5rem;
   border-radius: 18px;
-  border: 1px solid #e3b442;
-  color: white;
-  transition: all 0.3s;
-  box-shadow: 0 6px 20px rgba(57,255,20,0.13);
+  border: 2px solid #9D4EDD;
+  color: #FFFFFF;
+  transition: all 0.26s;
+  box-shadow: 0 6px 28px #9D4EDD44, 0 2px 16px #FFD70018;
   max-width: 350px;
   margin: 0 auto;
   font-family: 'Roboto', 'Orbitron', Arial, sans-serif;
 }
 
 .blog-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 32px rgba(227, 180, 66, 0.22);
-  border-color: #39FF14;
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 14px 42px #FFD70044, 0 4px 20px #9D4EDD33;
+  border-color: #FFD700;
 }
 
 .blog-img {
@@ -24,46 +24,54 @@
   border-radius: 13px;
   margin-bottom: 1rem;
   border: 2px solid #39FF14;
+  box-shadow: 0 0 20px #39FF1444;
 }
 
 .blog-title {
-  font-size: 1.4rem;
-  color: #FFD700;
+  font-size: 1.42rem;
+  color: #39FF14;
   margin: 0 0 0.5rem 0;
   font-family: 'Orbitron', 'Roboto', Arial, sans-serif;
   font-weight: 700;
+  letter-spacing: 1.1px;
+  text-shadow: 0 0 10px #39FF1433;
 }
 
 .blog-date {
-  color: #e3b442;
-  font-size: 0.97rem;
+  color: #FFD700;
+  font-size: 1rem;
   margin: 0 0 1rem 0;
   font-weight: 500;
+  letter-spacing: 0.4px;
 }
 
 .blog-content {
-  color: #eee;
+  color: #D3D3D3;
   font-size: 1rem;
-  line-height: 1.56;
-  margin: 0 0 1.1rem 0;
+  line-height: 1.57;
+  margin: 0 0 1.2rem 0;
   text-align: justify;
 }
 
 .btn-leer-mas {
-  background: linear-gradient(135deg, #39FF14 60%, #e3b442 100%);
-  color: #19161a;
+  background: linear-gradient(90deg, #9D4EDD 58%, #FFD700 100%);
+  color: #181622;
   border: none;
   padding: 0.7rem 1.2rem;
   border-radius: 8px;
   font-weight: 700;
+  font-family: 'Orbitron', 'Roboto', Arial, sans-serif;
   cursor: pointer;
-  transition: background 0.23s, transform 0.23s;
+  transition: background 0.23s, transform 0.19s, box-shadow 0.13s;
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.03rem;
+  box-shadow: 0 2px 14px #9D4EDD22;
+  letter-spacing: 0.6px;
 }
 
 .btn-leer-mas:hover {
-  background: linear-gradient(90deg,#e3b442 48%, #39FF14 100%);
-  transform: scale(1.03);
-  box-shadow: 0 0 14px #39FF14;
+  background: linear-gradient(90deg, #FFD700 41%, #9D4EDD 100%);
+  transform: scale(1.04);
+  box-shadow: 0 0 18px #39FF1444, 0 0 12px #FFD70044;
+  color: #39FF14;
 }

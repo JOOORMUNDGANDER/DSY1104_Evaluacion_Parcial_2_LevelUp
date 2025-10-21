@@ -19,10 +19,11 @@ function CarruselInicio() {
   ];
 
   return (
+  <div className="carousel-custom">
     <Carousel>
       {bannerItems.map((item, idx) => (
         <Carousel.Item key={idx}>
-          <img className="d-block w-100" src={item.src} alt={item.alt} />
+          <img className="carousel-img" src={item.src} alt={item.alt} />
           <Carousel.Caption>
             <h3>{item.alt}</h3>
             <p>{item.description}</p>
@@ -31,7 +32,8 @@ function CarruselInicio() {
         </Carousel.Item>
       ))}
     </Carousel>
-  );
+  </div>
+);
 }
 
 export default CarruselInicio;

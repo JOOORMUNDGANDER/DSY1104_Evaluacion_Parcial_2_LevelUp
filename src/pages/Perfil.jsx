@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { productos } from '../data/productos';
 import '../styles/Perfil.css';
 
-// Utilidad para generar código de referido único (sin usar 'usuario' global)
+// Utilidad para generar código de referido único
 function generarCodigoReferido(email, actualCodigoReferido = '') {
   const nombre = email ? email.split('@')[0] : 'user';
   const random = actualCodigoReferido
@@ -14,10 +14,12 @@ function generarCodigoReferido(email, actualCodigoReferido = '') {
 
 function Perfil() {
   const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
-  const [nombre, setNombre] = useState(usuario.nombre || '');
+  // Nombre editable completo, usado tanto para mostrar como modificar
+  const [nombreCompleto, setNombreCompleto] = useState(usuario.nombreCompleto || usuario.nombre || '');
+  const primerNombre = nombreCompleto.trim().split(' ')[0] || usuario.nombre || '';
   const recomendaciones = productos.filter(p => p.categoria === 'accesorios');
 
-  // Generar código si no existe (evita duplicados)
+  // Generar código si no existe
   if (!usuario.codigoReferido) {
     usuario.codigoReferido = generarCodigoReferido(usuario.email);
     localStorage.setItem('usuario', JSON.stringify(usuario));
@@ -33,22 +35,26 @@ function Perfil() {
   const puntosTotales = (usuario.puntos || 100) + sumatoriaReferidos;
 
   const guardarPerfil = () => {
-    const usuarioActualizado = { ...usuario, nombre };
+    const usuarioActualizado = { ...usuario,
+      nombre: primerNombre,
+      nombreCompleto,
+    };
     localStorage.setItem('usuario', JSON.stringify(usuarioActualizado));
     alert('Perfil actualizado');
+    // Puede agregarse: window.location.reload() si quieres recargar todo
   };
 
   return (
     <div className="perfil-container">
       <div className="perfil-header">
         <div>
-          <h2 className="perfil-titulo">Mi Perfil</h2>
+          <h2 className="perfil-titulo">¡Hola, {primerNombre}!</h2>
           <p className="perfil-descripcion">
             Gestiona tu información y descubre recomendaciones
           </p>
         </div>
         <div className="perfil-avatar">
-          {usuario.nombre?.charAt(0).toUpperCase() ||
+          {primerNombre?.charAt(0).toUpperCase() ||
             usuario.email?.charAt(0).toUpperCase()}
         </div>
       </div>
@@ -57,10 +63,10 @@ function Perfil() {
         <div className="perfil-personal-info">
           <h3 className="perfil-subtitulo">Información Personal</h3>
           <div className="perfil-form-group">
-            <label className="perfil-label">Nombre</label>
+            <label className="perfil-label">Nombre completo</label>
             <input
-              value={nombre}
-              onChange={e => setNombre(e.target.value)}
+              value={nombreCompleto}
+              onChange={e => setNombreCompleto(e.target.value)}
               placeholder="Tu nombre completo"
               className="perfil-input"
             />

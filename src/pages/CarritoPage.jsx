@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCarrito } from '../context/CarritoContext';
 import CartItem from '../components/CartItem';
 import '../styles/Carrito.css';
 
 const CarritoPage = () => {
   const { state, dispatch } = useCarrito();
+  const [showPago, setShowPago] = useState(false);
 
   const handleUpdateQuantity = (id, nuevaCantidad) => {
     if (nuevaCantidad < 1) return;
@@ -21,6 +22,13 @@ const CarritoPage = () => {
     ) {
       dispatch({ type: 'VACIAR_CARRITO' });
     }
+  };
+
+  const handlePagar = () => {
+    setShowPago(true);
+    setTimeout(() => setShowPago(false), 2300);
+    // Agrega aquí dispatch({ type: 'VACIAR_CARRITO' }) si quieres vaciarlo tras "pago".
+    // O navega a otra página si deseas.
   };
 
   if (state.items.length === 0) {
@@ -56,11 +64,18 @@ const CarritoPage = () => {
           <button className="btn-vaciar" onClick={handleClearCart}>
             Vaciar carrito
           </button>
-          <button className="btn-comprar">
+          <button className="btn-comprar" onClick={handlePagar}>
             Proceder al pago
           </button>
         </aside>
       </div>
+      {showPago && (
+        <div className="toast-pago-exito">
+          <span role="img" aria-label="pago">✅</span>
+          <b>¡Pago Simulado!</b> Tu pedido ha sido procesado exitosamente.<br />
+          Gracias por tu compra gamer.
+        </div>
+      )}
     </main>
   );
 };

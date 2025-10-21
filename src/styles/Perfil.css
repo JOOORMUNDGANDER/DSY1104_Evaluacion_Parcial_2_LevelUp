@@ -120,7 +120,12 @@
 }
 
 /* Recomendaciones */
-.perfil-recomendaciones {}
+.perfil-recomendaciones {
+  margin-top: 2rem;
+  background: #181622;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
 
 .recomendaciones-grid {
   display: grid;

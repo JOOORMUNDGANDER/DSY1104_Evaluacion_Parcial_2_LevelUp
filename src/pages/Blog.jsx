@@ -20,8 +20,8 @@ const blogs = [
     }),
     contenido:
       "Aprende a dominar los shooters: sensibilidad óptima, comunicación, ejercicios de puntería y manejo del estrés.",
-    imagen: "URL_AQUI_IMAGE_FPS", // tipFPS
-    enlace: "https://www.redbull.com/es-es/shooters-consejos-tacticas",
+    imagen: "https://gam3s.gg/_next/image/?url=https%3A%2F%2Fassets.gam3s.gg%2Fbest_shooter_games_84c2fb877f.jpg&w=3840&q=75", // tipFPS
+    enlace: "https://www.youtube.com/watch?v=8z-97e8weaM",
   },
   {
     id: 2,
@@ -33,8 +33,8 @@ const blogs = [
     }),
     contenido:
       "Las tecnologías que están cambiando el rubro: IA, pantallas curvas 4K, periféricos hápticos y realidad aumentada.",
-    imagen: "URL_AQUI_IMAGE_TENDENCIAS", // tendencias
-    enlace: "https://es.digitaltrends.com/videojuegos/tendencias-videojuegos/",
+    imagen: "https://www.blog.udonis.co/static/1d83d029fb9def06a066571b9fa0224b/6bd3c/gaming-trends.webp", // tendencias
+    enlace: "https://www-blog-udonis-co.translate.goog/mobile-marketing/mobile-games/gaming-trends?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=sge#:~:text=de%20los%20videojuegos.-,9.,novedoso%20que%20despierte%20la%20curiosidad.",
   },
   {
     id: 3,
@@ -46,9 +46,9 @@ const blogs = [
     }),
     contenido:
       "Cómo los equipos profesionales entrenan la toma de decisiones, el análisis de rivales y la sinergia en juegos de equipo.",
-    imagen: "URL_AQUI_IMAGE_ESTRATEGIA", // estrategia
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuHETdPhUSOaIH-SH7ML-uFLMgQSO_rE7qsA&s", // estrategia
     enlace:
-      "https://www.marca.com/esports/actualidad/2024/12/10/estrategias-entrenamiento-esports.html",
+      "https://isportcoach.com/como-planificar-el-entrenamiento-de-esports",
   },
   {
     id: 4,
@@ -60,8 +60,8 @@ const blogs = [
     }),
     contenido:
       "Tips médicos para cuidar postura, evitar el síndrome de túnel carpiano y reducir el cansancio visual.",
-    imagen: "URL_AQUI_IMAGE_SALUD", // salud
-    enlace: "https://www.topdoctors.es/articulos-medicos/10-consejos-de-salud-para-gamers",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSeh5qQT07-PZXCB1swRQLVrUkUrgZP6TFDw&s", // salud
+    enlace: "https://as.com/deporteyvida/2020/10/28/portada/1603891477_888618.html",
   },
   {
     id: 5,
@@ -73,8 +73,8 @@ const blogs = [
     }),
     contenido:
       "Guía para iluminación, ergonomía, cable management y recomendaciones de sillas y escritorios ideales.",
-    imagen: "URL_AQUI_IMAGE_CONFIGURACION", // configSetup
-    enlace: "https://www.xataka.com/seleccion/mejores-escritorios-setups-gaming",
+    imagen: "https://i.ytimg.com/vi/RNLKWPY42sY/maxresdefault.jpg", // configSetup
+    enlace: "https://www.youtube.com/watch?v=RNLKWPY42sY",
   },
 ];
 

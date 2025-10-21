@@ -180,33 +180,45 @@
 /* Grid de productos */
 .catalogo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2.12rem;
   width: 100%;
   padding: 0 0.3rem;
   min-height: 70vh;
   box-sizing: border-box;
   justify-items: center;
+  /* Centrado visual incluso si hay pocas cards */
+  justify-content: center;
 }
+
+.catalogo-grid > .producto-card {
+  max-width: 320px;
+  min-width: 220px;
+  /* Hace que nunca se estiren "alargadas" aunque sean 1-3 */
+}
+
 @media (min-width: 1400px) {
   .catalogo-grid {
     gap: 2.4rem;
     padding: 0 2.5rem;
   }
 }
+
 @media (max-width: 900px) {
   .catalogo-grid {
-    grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 1.13rem;
     padding: 0 0.1rem;
   }
 }
+
 @media (max-width: 650px) {
   .catalogo-grid {
     grid-template-columns: 1fr;
     gap: 0.81rem;
   }
 }
+
 .producto-card {
   background: #1a1a1a;
   border-radius: 16px;

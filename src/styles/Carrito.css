@@ -206,4 +206,24 @@ body {
     max-width: 100%;
     margin-top: 1rem;
   }
+  .toast-pago-exito {
+  position: fixed;
+  bottom: 3.5rem;
+  right: 2.7rem;
+  background: #181622;
+  color: #FFD700;
+  border: 2px solid #9D4EDD;
+  padding: 1.2rem 2.2rem;
+  border-radius: 13px;
+  font-size: 1.08rem;
+  font-family: 'Orbitron','Roboto',Arial,sans-serif;
+  box-shadow: 0 8px 34px #9D4EDD26, 0 1px 8px #FFD70018;
+  z-index: 2001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeInUp 0.7s cubic-bezier(.46,.2,.74,.99);
+}
+
 }

@@ -4,7 +4,6 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useCarrito } from '../context/CarritoContext';
 import '../styles/NavbarPrincipal.css';
 
-
 function NavbarPrincipal() {
   const { state } = useCarrito();
   const usuario = JSON.parse(localStorage.getItem('usuario'));
@@ -23,48 +22,47 @@ function NavbarPrincipal() {
     : '';
 
   return (
-  <nav className="navbar">
-    <NavLink to="/" className="navbar-logo">
-      Level-Up Gamer
-    </NavLink>
+    <nav className="navbar">
+      <NavLink to="/" className="navbar-logo">
+        Level-Up Gamer
+      </NavLink>
 
-    <div className="navbar-links">
-      <NavLink
-        to="/catalogo"
-        className={({ isActive }) =>
-          "navbar-link" + (isActive ? " navbar-link-active" : "")
-        }
-      >
-        Catálogo
-      </NavLink>
-      {/* Ofertas ELIMINADO */}
-      <NavLink
-        to="/eventos"
-        className={({ isActive }) =>
-          "navbar-link" + (isActive ? " navbar-link-active" : "")
-        }
-      >
-        Eventos
-      </NavLink>
-      <NavLink
-        to="/blog"
-        className={({ isActive }) =>
-          "navbar-link" + (isActive ? " navbar-link-active" : "")
-        }
-      >
-        Blog
-      </NavLink>
-      <NavLink
-        to="/contacto"
-        className={({ isActive }) =>
-          "navbar-link" + (isActive ? " navbar-link-active" : "")
-        }
-      >
+      <div className="navbar-links">
+        <NavLink
+          to="/catalogo"
+          className={({ isActive }) =>
+            "navbar-link" + (isActive ? " navbar-link-active" : "")
+          }
+        >
+          Catálogo
+        </NavLink>
+        <NavLink
+          to="/eventos"
+          className={({ isActive }) =>
+            "navbar-link" + (isActive ? " navbar-link-active" : "")
+          }
+        >
+          Eventos
+        </NavLink>
+        <NavLink
+          to="/blog"
+          className={({ isActive }) =>
+            "navbar-link" + (isActive ? " navbar-link-active" : "")
+          }
+        >
+          Blog
+        </NavLink>
+        <NavLink
+          to="/contacto"
+          className={({ isActive }) =>
+            "navbar-link" + (isActive ? " navbar-link-active" : "")
+          }
+        >
           Contacto
         </NavLink>
       </div>
 
-      <div className="navbar-divider"></div> {/* Separador visual */}
+      <div className="navbar-divider"></div>
 
       <div className="navbar-user">
         {usuario ? (
@@ -73,7 +71,14 @@ function NavbarPrincipal() {
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <span className="navbar-username">👤 {primerNombre}</span>
+            {/* Cambiado a NavLink para ir directo al perfil al clickear el nombre */}
+            <NavLink
+              to="/perfil"
+              className="navbar-username"
+              style={{ textDecoration: 'none' }}
+            >
+              👤 {primerNombre}
+            </NavLink>
             {dropdownOpen && (
               <div className="navbar-dropdown-content">
                 <NavLink to="/perfil" className="dropdown-item">

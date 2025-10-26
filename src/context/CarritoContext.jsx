@@ -91,3 +91,5 @@ export const useCarrito = () => {
   }
   return context;
 };
+
+export { carritoReducer };

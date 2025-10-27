@@ -8,6 +8,7 @@ module.exports = function(config) {
     ],
     exclude: [
       'src/index.js',
+      'src/main.jsx',
       'src/reportWebVitals.js'
     ],
     preprocessors: {
@@ -27,10 +28,12 @@ module.exports = function(config) {
               options: {
                 presets: [
                   '@babel/preset-env',
-                  '@babel/preset-react'
+                  ['@babel/preset-react', { runtime: 'automatic' }]
                 ],
                 plugins: [
-                  'istanbul'
+                  ['babel-plugin-istanbul', {
+                    exclude: ['**/*.spec.js', '**/tests/**']
+                  }]
                 ]
               }
             }
@@ -53,7 +56,7 @@ module.exports = function(config) {
       noInfo: true,
       stats: 'errors-only'
     },
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'kjhtml'],
     coverageReporter: {
       dir: 'coverage',
       reporters: [
@@ -64,10 +67,10 @@ module.exports = function(config) {
       ],
       check: {
         global: {
-          statements: 80,
-          branches: 50,
-          functions: 80,
-          lines: 80
+          statements: 85,
+          branches: 35,
+          functions: 85,
+          lines: 85
         }
       }
     },

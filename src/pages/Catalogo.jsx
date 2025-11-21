@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { productos } from '../data/productos';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useCarrito } from '../context/CarritoContext';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Catalogo.css';
 
 function Catalogo() {
+  const [productos, setProductos] = useState([]);
   const [busqueda, setBusqueda] = useState('');
   const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
   const [precioMin, setPrecioMin] = useState(0);
@@ -13,6 +14,13 @@ function Catalogo() {
 
   const { dispatch } = useCarrito();
   const navigate = useNavigate();
+
+  // Carga productos desde el backend al montar el componente
+  useEffect(() => {
+    axios.get('http://localhost:8081/api/productos')
+      .then(response => setProductos(response.data))
+      .catch(error => console.error(error));
+  }, []);
 
   const agregarAlCarrito = (producto) => {
     dispatch({ type: 'AGREGAR_PRODUCTO', producto });
@@ -56,7 +64,7 @@ function Catalogo() {
     setBusqueda('');
     setCategoriasSeleccionadas([]);
     setPrecioMin(0);
-    setPrecioMax(1000000);
+    setPrecioMax(3000000);
   };
 
   return (
@@ -105,7 +113,7 @@ function Catalogo() {
                     onChange={(e) => setPrecioMax(Number(e.target.value))}
                     className="precio-input"
                     min={precioMin}
-                    max="1000000"
+                    max="3000000"
                   />
                 </div>
               </div>
